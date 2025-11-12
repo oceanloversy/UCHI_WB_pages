@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PREDICTION of SEA CONDITION AROUND WAKASA BAY by UCHI</title>
+<style>
+
+<!-- WholeArea.png 表示	<div id="wholeArea"> に全体図を追加（タイトル直下） -->
+<!-- ズーム切替	JSONから自動取得した領域名を「表示エリア」としてプルダウン表示 -->
+<!-- 構成順序	「表示エリア」→「項目」→「日時」→「PREV/NEXT」順に整理 -->
+<!-- 同期動作	静止画／動画ともに同一JSON構造 {AreaX: {var: [path]}} に対応 -->
+<!-- 注記自動表示 SVel / BVel のみ赤矢印注記を表示 -->
+<!-- GitHub Pages互換	cache: 'no-store' により自動更新を常に反映 -->
+<!-- WholeArea.png は images/WholeArea.png に保存 -->
+
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    text-align: center;
+  }
+  header {
+    background: linear-gradient(90deg, #004e92, #000428);
+    color: white;
+    padding: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  
+  /* WholeArea.png を中央に配置 */
+  #wholeArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  #wholeArea img {
+    width: 50%;
+    max-width: 800px;
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+  .container {
+    margin: 1.5rem auto;
+    width: 95%;
+    max-width: 900px;
+  }
+  select, button {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  img, video {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: white;
+     display: block;
+    margin: 0 auto; /* 中央寄せ */
+  }
+  
+  .btn-group {
+    margin-top: 0.8rem;
+    text-align: center; /* PREV / NEXT を中央に配置 */
+  }
+
+ #mode-buttons {
+    text-align: center;
+  }
+
+  #mode-buttons button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    margin: 0.3rem;
+    cursor: pointer;
+  }
+  #mode-buttons button.active {
+    background-color: #0056b3;
+  }
+
+/* 静止画像・動画のコンテナを中央寄せ */
+  #imageContainer, #videoContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+ /* 流速注記位置調整 */
+  #velocityNoteImage, #velocityNoteVideo {
+    position: absolute;
+    top: 20px;
+    right: 90px;
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    display: none;
+  }
+
+  @media (max-width: 600px) {
+    #velocityNoteImage, #velocityNoteVideo {
+      font-size: 12px;
+    }
+  }
+/* ===== フッター追加 ===== */
+  footer {
+    margin-top: 2rem;
+    background-color: #e9ecef;
+    color: #555;
+    font-size: 0.9rem;
+    padding: 0.8rem;
+    text-align: center;
+    border-top: 1px solid #ccc;
+  }
+</style>
+</head>
+
+<body>
+<header>PREDICTION of SEA CONDITION AROUND WAKASA BAY by UCHI </header>
+
+<!-- WholeArea.png 表示 -->
+<div id="wholeArea">
+  <img src="images/WholeArea.png" alt="Whole Area Map">
+</div>
+
+<div class="container">
+  <div id="mode-buttons">
+    <button id="imageModeBtn" class="active">静止画像</button>
+    <button id="videoModeBtn">動画</button>
+  </div>
+
+  <!-- ========================= -->
+  <!-- 静止画像モード -->
+  <!-- ========================= -->
+  <div id="imageMode">
+    <div>
+      <label>エリア：</label>
+      <select id="zoomArea"></select><br>
+
+      <label>項目　：</label>
+      <select id="imageVar">
+        <option value="SSS">Sea Surface Salinity</option>
+        <option value="BS">Bottom Salinity</option>
+        <option value="SST">Sea Surface Temperature</option>
+        <option value="BT">Bottom Temperature</option>
+        <option value="SVel">Surface Current</option>
+        <option value="BVel">Bottom Current</option>
+      </select><br>
+
+      <label>日時　：</label>
+      <select id="imageTime"></select>
+    </div>
+
+    <div class="btn-group">
+      <button id="prevBtn">PREV</button>
+      <button id="nextBtn">NEXT</button>
+    </div>
+
+    <div id="imageContainer" style="position:relative; display:flex; justify-content:center;">
+      <img id="displayImage" src="" alt="Sea Condition Image">
+      <div id="velocityNoteImage"
+           style="position:absolute; top:350px; left:10px; color:red; font-size:14px; font-weight:bold; display:none;">
+        赤矢印は流速0.5m/s以上
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================= -->
+  <!-- 動画モード -->
+  <!-- ========================= -->
+  <div id="videoMode" style="display:none;">
+    <div>
+      <label>表示エリア：</label>
+      <select id="zoomAreaVideo"></select><br>
+
+      <label>項目：</label>
+      <select id="videoVar">
+        <option value="SSS">Sea Surface Salinity</option>
+        <option value="BS">Bottom Salinity</option>
+        <option value="SST">Sea Surface Temperature</option>
+        <option value="BT">Bottom Temperature</option>
+        <option value="SVel">Surface Current</option>
+        <option value="BVel">Bottom Current</option>
+      </select>
+    </div>
+
+    <div id="videoContainer" style="position:relative; display:flex; justify-content:center;">
+      <video id="displayVideo" controls>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div id="velocityNoteVideo"
+           style="position:absolute; top:30px; right:90px; color:red; font-size:14px; font-weight:bold; display:none;">
+        赤矢印は流速0.5m/s以上
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== フッター部分（免責事項） ===== -->
+
+<footer>
+  当予測結果を使用することによって発生した一切の損害について、何等責任を負いません。
+</footer>
+  
+<script>
+let imageData = {};
+let videoData = {};
+
+const imageVar = document.getElementById('imageVar');
+const imageTime = document.getElementById('imageTime');
+const displayImage = document.getElementById('displayImage');
+const zoomArea = document.getElementById('zoomArea');
+
+async function loadJSON() {
+  try {
+    const [imgRes, vidRes] = await Promise.all([
+      fetch('image_list.json', { cache: 'no-store' }),
+      fetch('video_list.json', { cache: 'no-store' })
+    ]);
+    imageData = await imgRes.json();
+    videoData = await vidRes.json();
+    populateZoomOptions();
+    populateTimeOptions();
+    registerImageEvents();
+    registerVideoEvents();
+  } catch (e) {
+    console.warn('JSON not found.');
+  }
+}
+
+function populateZoomOptions() {
+  zoomArea.innerHTML = '';
+  const areas = Object.keys(imageData);
+  areas.forEach(a => {
+    const opt = document.createElement('option');
+    opt.value = a;
+    opt.textContent = a;
+    zoomArea.appendChild(opt);
+  });
+  document.getElementById('zoomAreaVideo').innerHTML = zoomArea.innerHTML;
+}
+
+function populateTimeOptions() {
+  const varSel = imageVar.value;
+  const areaSel = zoomArea.value;
+  if (!imageData[areaSel] || !imageData[areaSel][varSel]) return;
+
+  const entries = imageData[areaSel][varSel];
+  imageTime.innerHTML = '';
+  entries.forEach(entry => {
+    const opt = document.createElement('option');
+    opt.value = entry.path;
+    opt.textContent = entry.datetime;
+    imageTime.appendChild(opt);
+  });
+  updateImage();
+}
+
+function updateImage() {
+  const varSel = imageVar.value;
+  const path = imageTime.value;
+  if (!path) return;
+  displayImage.src = path;
+
+  const note = document.getElementById('velocityNoteImage');
+  note.style.display = (varSel === 'SVel' || varSel === 'BVel') ? 'block' : 'none';
+}
+
+document.getElementById('prevBtn').onclick = () => shiftImage(-1);
+document.getElementById('nextBtn').onclick = () => shiftImage(1);
+function shiftImage(offset) {
+  const idx = imageTime.selectedIndex;
+  const newIdx = idx + offset;
+  if (newIdx >= 0 && newIdx < imageTime.options.length) {
+    imageTime.selectedIndex = newIdx;
+    updateImage();
+  }
+}
+
+function registerImageEvents() {
+  imageVar.onchange = populateTimeOptions;
+  zoomArea.onchange = populateTimeOptions;
+  imageTime.onchange = updateImage;
+}
+
+// 動画
+const videoVar = document.getElementById('videoVar');
+const displayVideo = document.getElementById('displayVideo');
+const zoomAreaVideo = document.getElementById('zoomAreaVideo');
+
+function updateVideo() {
+  const varSel = videoVar.value;
+  const areaSel = zoomAreaVideo.value;
+  if (!videoData[areaSel] || !videoData[areaSel][varSel]) return;
+  const entry = videoData[areaSel][varSel][0];
+  if (!entry) return;
+  displayVideo.src = entry.path;
+  displayVideo.load();
+  const note = document.getElementById('velocityNoteVideo');
+  note.style.display = (varSel === 'SVel' || varSel === 'BVel') ? 'block' : 'none';
+}
+
+function registerVideoEvents() {
+  videoVar.onchange = updateVideo;
+  zoomAreaVideo.onchange = updateVideo;
+}
+
+// モード切替
+const imageMode = document.getElementById('imageMode');
+const videoMode = document.getElementById('videoMode');
+const imageModeBtn = document.getElementById('imageModeBtn');
+const videoModeBtn = document.getElementById('videoModeBtn');
+
+imageModeBtn.onclick = () => {
+  imageMode.style.display = 'block';
+  videoMode.style.display = 'none';
+  imageModeBtn.classList.add('active');
+  videoModeBtn.classList.remove('active');
+};
+videoModeBtn.onclick = () => {
+  imageMode.style.display = 'none';
+  videoMode.style.display = 'block';
+  videoModeBtn.classList.add('active');
+  imageModeBtn.classList.remove('active');
+};
+
+window.addEventListener('DOMContentLoaded', () => loadJSON());
+</script>
+</body>
+</html>
+
