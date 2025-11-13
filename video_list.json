@@ -1,0 +1,34 @@
+{
+  "WholeArea": {
+    "BS": [
+      {
+        "path": "mv/BS_WholeArea.mp4"
+      }
+    ],
+    "BT": [
+      {
+        "path": "mv/BT_WholeArea.mp4"
+      }
+    ],
+    "BVel": [
+      {
+        "path": "mv/BVel_WholeArea.mp4"
+      }
+    ],
+    "SSS": [
+      {
+        "path": "mv/SSS_WholeArea.mp4"
+      }
+    ],
+    "SST": [
+      {
+        "path": "mv/SST_WholeArea.mp4"
+      }
+    ],
+    "SVel": [
+      {
+        "path": "mv/SVel_WholeArea.mp4"
+      }
+    ]
+  }
+}
