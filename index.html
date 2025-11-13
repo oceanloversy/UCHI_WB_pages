@@ -111,21 +111,32 @@
       font-size: 12px;
     }
   }
-/* ===== フッター追加 ===== */
+/* ===== フッター（免責・問い合わせ） ===== */
   footer {
-    margin-top: 2rem;
-    background-color: #e9ecef;
-    color: #555;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 1rem;
     font-size: 0.9rem;
-    padding: 0.8rem;
-    text-align: center;
+    margin-top: 2rem;
     border-top: 1px solid #ccc;
+  }
+  #contactBtn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 0.5rem;
+  }
+  #contactBtn:hover {
+    background-color: #0056b3;
   }
 </style>
 </head>
 
 <body>
-<header>PREDICTION of SEA CONDITION AROUND WAKASA BAY by UCHI </header>
+<header>PREDICTION of SEA CONDITION by UCHI AROUND WAKASA BAY</header>
 
 <!-- WholeArea.png 表示 -->
 <div id="wholeArea">
@@ -134,7 +145,7 @@
 
 <div class="container">
   <div id="mode-buttons">
-    <button id="imageModeBtn" class="active">静止画像</button>
+    <button id="imageModeBtn" class="active">静止画</button>
     <button id="videoModeBtn">動画</button>
   </div>
 
@@ -208,7 +219,8 @@
 <!-- ===== フッター部分（免責事項） ===== -->
 
 <footer>
-  当予測結果を使用することによって発生した一切の損害について、何等責任を負いません。
+  <p>当予測結果を使用することによって発生した一切の損害について、何等責任を負いません。</p>
+  <a id="contactBtn" href="#">お問い合わせはこちら</a>
 </footer>
   
 <script>
@@ -333,8 +345,16 @@ videoModeBtn.onclick = () => {
   imageModeBtn.classList.remove('active');
 };
 
+// ===== 問い合わせボタン設定 =====
+document.getElementById('contactBtn').onclick = function() {
+  const email = "oceanloversy@gmail.com"; // ← 必要に応じて変更可能
+  const subject = encodeURIComponent("UCHI-AWBによる予測結果に関する問い合わせ");
+  const body = encodeURIComponent("所属：\nお名前：\n問い合わせ内容：\n");
+  const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+  window.location.href = mailtoLink;
+};
+  
 window.addEventListener('DOMContentLoaded', () => loadJSON());
 </script>
 </body>
 </html>
-
