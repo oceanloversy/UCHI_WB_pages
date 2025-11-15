@@ -27,8 +27,7 @@
     font-size: 1.4rem;
     font-weight: bold;
   }
-  
-  /* WholeArea.png を中央に配置 */
+
   #wholeArea {
     display: flex;
     justify-content: center;
@@ -43,34 +42,37 @@
     border: 2px solid #ccc;
     border-radius: 10px;
   }
+
   .container {
     margin: 1.5rem auto;
     width: 95%;
     max-width: 900px;
   }
+
   select, button {
     margin: 0.5rem;
     padding: 0.5rem;
     font-size: 1rem;
   }
+
   img, video {
     width: 100%;
-    height: auto;
     max-height: 80vh;
     border: 2px solid #ccc;
     border-radius: 10px;
     background: white;
-     display: block;
-    margin: 0 auto; /* 中央寄せ */
-  }
-  
-  .btn-group {
-    margin-top: 0.8rem;
-    text-align: center; /* PREV / NEXT を中央に配置 */
+    display: block;
+    margin: 0 auto;
   }
 
- #mode-buttons {
+  .btn-group {
+    margin-top: 0.8rem;
     text-align: center;
+  }
+
+  #mode-buttons {
+    text-align: center;
+    margin-top: 1rem;
   }
 
   #mode-buttons button {
@@ -86,7 +88,14 @@
     background-color: #0056b3;
   }
 
-/* 静止画像・動画のコンテナを中央寄せ */
+   /* ▼▼ PREV / NEXT ボタンを中央配置 ▼▼ */
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.8rem;
+  }
+  
   #imageContainer, #videoContainer {
     position: relative;
     display: flex;
@@ -95,29 +104,22 @@
     margin-top: 1rem;
   }
 
- /* 流速注記位置調整 */
   #velocityNoteImage, #velocityNoteVideo {
     position: absolute;
-    top: 20px;
-    right: 90px;
     color: red;
     font-size: 14px;
     font-weight: bold;
     display: none;
   }
 
-  @media (max-width: 600px) {
-    #velocityNoteImage, #velocityNoteVideo {
-      font-size: 12px;
-    }
-  }
-/* ===== フッター（免責・問い合わせ） ===== */
+/* ===== フッター追加 ===== */
   footer {
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 1rem;
-    font-size: 0.9rem;
     margin-top: 2rem;
+    background-color: #e9ecef;
+    color: #555;
+    font-size: 0.9rem;
+    padding: 0.8rem;
+    text-align: center;
     border-top: 1px solid #ccc;
   }
   #contactBtn {
@@ -127,47 +129,47 @@
     padding: 0.5rem 1rem;
     border-radius: 6px;
     text-decoration: none;
-    margin-top: 0.5rem;
   }
+
   #contactBtn:hover {
     background-color: #0056b3;
   }
 </style>
 </head>
 
+
 <body>
 <header>PREDICTION of <br>&emsp;SEA CONDITION by UCHI <br>&emsp;&emsp;AROUND WAKASA BAY</header>
 
-<!-- WholeArea.png 表示 -->
 <div id="wholeArea">
   <img src="images/WholeArea.png" alt="Whole Area Map">
 </div>
 
 <div class="container">
+
+  <!-- モード切替 -->
   <div id="mode-buttons">
     <button id="imageModeBtn" class="active">静止画</button>
     <button id="videoModeBtn">動画</button>
   </div>
 
-  <!-- ========================= -->
   <!-- 静止画像モード -->
-  <!-- ========================= -->
   <div id="imageMode">
     <div>
       <label>エリア：</label>
       <select id="zoomArea"></select><br>
 
-      <label>項目　：</label>
+      <label>項目&emsp;：</label>
       <select id="imageVar">
-        <option value="SSS">10m-Salinity</option>
-        <option value="BS">30m-Salinity</option>
-        <option value="SST">10m-Temperature</option>
-        <option value="BT">30m-Temperature</option>
-        <option value="SVel">10m-Current</option>
-        <option value="BVel">30m-Current</option>
+        <option value="SSS">Sea Surface Salinity</option>
+        <option value="BS">Bottom Salinity</option>
+        <option value="SST">Sea Surface Temperature</option>
+        <option value="BT">Bottom Temperature</option>
+        <option value="SVel">Surface Current</option>
+        <option value="BVel">Bottom Current</option>
       </select><br>
 
-      <label>日時　：</label>
+      <label>日時&emsp;：</label>
       <select id="imageTime"></select>
     </div>
 
@@ -176,18 +178,13 @@
       <button id="nextBtn">NEXT</button>
     </div>
 
-    <div id="imageContainer" style="position:relative; display:flex; justify-content:center;">
-      <img id="displayImage" src="" alt="Sea Condition Image">
-      <div id="velocityNoteImage"
-           style="position:absolute; top:320px; left:10px; color:red; font-size:14px; font-weight:bold; display:none;">
-        赤矢印は流速0.5m/s以上
-      </div>
+    <div id="imageContainer">
+      <img id="displayImage" src="">
+      <div id="velocityNoteImage">赤矢印は流速0.5m/s以上</div>
     </div>
   </div>
 
-  <!-- ========================= -->
   <!-- 動画モード -->
-  <!-- ========================= -->
   <div id="videoMode" style="display:none;">
     <div>
       <label>表示エリア：</label>
@@ -195,42 +192,42 @@
 
       <label>項目：</label>
       <select id="videoVar">
-        <option value="SSS">10m-Salinity</option>
-        <option value="BS">30m-Salinity</option>
-        <option value="SST">10m-Temperature</option>
-        <option value="BT">30m-Temperature</option>
-        <option value="SVel">10m-Current</option>
-        <option value="BVel">30m-Current</option>
+        <option value="SSS">Sea Surface Salinity</option>
+        <option value="BS">Bottom Salinity</option>
+        <option value="SST">Sea Surface Temperature</option>
+        <option value="BT">Bottom Temperature</option>
+        <option value="SVel">Surface Current</option>
+        <option value="BVel">Bottom Current</option>
       </select>
     </div>
 
-    <div id="videoContainer" style="position:relative; display:flex; justify-content:center;">
+    <div id="videoContainer">
       <video id="displayVideo" controls>
-        <source src="" type="video/mp4">
-        Your browser does not support the video tag.
+        <source src="">
       </video>
-      <div id="velocityNoteVideo"
-           style="position:absolute; top:320px; left:10px; color:red; font-size:14px; font-weight:bold; display:none;">
-        赤矢印は流速0.5m/s以上
-      </div>
+      <div id="velocityNoteVideo">赤矢印は流速0.5m/s以上</div>
     </div>
   </div>
+
 </div>
-<!-- ===== フッター部分（免責事項） ===== -->
 
 <footer>
   <p>当予測結果を使用することによって発生した一切の損害について、何等責任を負いません。</p>
   <a id="contactBtn" href="#">お問い合わせはこちら</a>
 </footer>
-  
+
 <script>
 let imageData = {};
 let videoData = {};
 
-const imageVar = document.getElementById('imageVar');
-const imageTime = document.getElementById('imageTime');
-const displayImage = document.getElementById('displayImage');
-const zoomArea = document.getElementById('zoomArea');
+/* ▼▼▼ ここでエリアごとの注記位置を定義 ▼▼▼ */
+const velocityNotePositions = {
+  "Area1": { top: "360px", left: "10px" },
+  "Area2": { top: "300px", left: "10px" },
+  "Area3": { top: "375px", left: "10px" },
+  "WholeArea": { top: "350px", left: "10px" }
+};
+/* ▲▲▲ 必要に応じて自由に追加・変更可 ▲▲▲ */
 
 async function loadJSON() {
   try {
@@ -240,55 +237,81 @@ async function loadJSON() {
     ]);
     imageData = await imgRes.json();
     videoData = await vidRes.json();
+
     populateZoomOptions();
     populateTimeOptions();
     registerImageEvents();
     registerVideoEvents();
+
   } catch (e) {
-    console.warn('JSON not found.');
+    console.warn("JSON not found.");
   }
 }
 
 function populateZoomOptions() {
-  zoomArea.innerHTML = '';
-  const areas = Object.keys(imageData);
-  areas.forEach(a => {
-    const opt = document.createElement('option');
-    opt.value = a;
-    opt.textContent = a;
-    zoomArea.appendChild(opt);
+  const zoom = document.getElementById('zoomArea');
+  zoom.innerHTML = "";
+
+  Object.keys(imageData).forEach(a => {
+    const opt = document.createElement("option");
+    opt.value = opt.textContent = a;
+    zoom.appendChild(opt);
   });
-  document.getElementById('zoomAreaVideo').innerHTML = zoomArea.innerHTML;
+
+  document.getElementById("zoomAreaVideo").innerHTML = zoom.innerHTML;
 }
 
 function populateTimeOptions() {
   const varSel = imageVar.value;
   const areaSel = zoomArea.value;
+
   if (!imageData[areaSel] || !imageData[areaSel][varSel]) return;
 
   const entries = imageData[areaSel][varSel];
-  imageTime.innerHTML = '';
-  entries.forEach(entry => {
-    const opt = document.createElement('option');
-    opt.value = entry.path;
-    opt.textContent = entry.datetime;
+  imageTime.innerHTML = "";
+
+  entries.forEach(e => {
+    const opt = document.createElement("option");
+    opt.value = e.path;
+    opt.textContent = e.datetime;
     imageTime.appendChild(opt);
   });
+
   updateImage();
 }
 
 function updateImage() {
-  const varSel = imageVar.value;
   const path = imageTime.value;
+  const varSel = imageVar.value;
+  const areaSel = zoomArea.value;
+
   if (!path) return;
+
   displayImage.src = path;
 
-  const note = document.getElementById('velocityNoteImage');
-  note.style.display = (varSel === 'SVel' || varSel === 'BVel') ? 'block' : 'none';
+  const note = document.getElementById("velocityNoteImage");
+  if (varSel === "SVel" || varSel === "BVel") {
+    note.style.display = "block";
+
+    const pos = velocityNotePositions[areaSel];
+    if (pos) {
+      note.style.top = pos.top || "20px";
+      note.style.left = pos.left || "";
+      note.style.right = pos.right || "";
+    } else {
+      note.style.top = "20px";
+      note.style.right = "90px";
+      note.style.left = "";
+    }
+
+  } else {
+    note.style.display = "none";
+  }
 }
 
-document.getElementById('prevBtn').onclick = () => shiftImage(-1);
-document.getElementById('nextBtn').onclick = () => shiftImage(1);
+document.getElementById("prevBtn").onclick = () => shiftImage(-1);
+document.getElementById("nextBtn").onclick = () => shiftImage(1);
+
 function shiftImage(offset) {
   const idx = imageTime.selectedIndex;
   const newIdx = idx + offset;
@@ -304,21 +327,36 @@ function registerImageEvents() {
   imageTime.onchange = updateImage;
 }
 
-// 動画
-const videoVar = document.getElementById('videoVar');
-const displayVideo = document.getElementById('displayVideo');
-const zoomAreaVideo = document.getElementById('zoomAreaVideo');
-
 function updateVideo() {
-  const varSel = videoVar.value;
   const areaSel = zoomAreaVideo.value;
+  const varSel = videoVar.value;
+
   if (!videoData[areaSel] || !videoData[areaSel][varSel]) return;
+
   const entry = videoData[areaSel][varSel][0];
   if (!entry) return;
+
   displayVideo.src = entry.path;
   displayVideo.load();
+
   const note = document.getElementById('velocityNoteVideo');
-  note.style.display = (varSel === 'SVel' || varSel === 'BVel') ? 'block' : 'none';
+  if (varSel === 'SVel' || varSel === 'BVel') {
+    note.style.display = "block";
+
+    const pos = velocityNotePositions[areaSel];
+    if (pos) {
+      note.style.top = pos.top || "20px";
+      note.style.left = pos.left || "";
+      note.style.right = pos.right || "";
+    } else {
+      note.style.top = "20px";
+      note.style.right = "90px";
+      note.style.left = "";
+    }
+
+  } else {
+    note.style.display = "none";
+  }
 }
 
 function registerVideoEvents() {
@@ -326,35 +364,34 @@ function registerVideoEvents() {
   zoomAreaVideo.onchange = updateVideo;
 }
 
-// モード切替
-const imageMode = document.getElementById('imageMode');
-const videoMode = document.getElementById('videoMode');
-const imageModeBtn = document.getElementById('imageModeBtn');
-const videoModeBtn = document.getElementById('videoModeBtn');
-
-imageModeBtn.onclick = () => {
-  imageMode.style.display = 'block';
-  videoMode.style.display = 'none';
-  imageModeBtn.classList.add('active');
-  videoModeBtn.classList.remove('active');
-};
-videoModeBtn.onclick = () => {
-  imageMode.style.display = 'none';
-  videoMode.style.display = 'block';
-  videoModeBtn.classList.add('active');
-  imageModeBtn.classList.remove('active');
+document.getElementById("imageModeBtn").onclick = () => {
+  imageMode.style.display = "block";
+  videoMode.style.display = "none";
+  imageModeBtn.classList.add("active");
+  videoModeBtn.classList.remove("active");
 };
 
-// ===== 問い合わせボタン設定 =====
-document.getElementById('contactBtn').onclick = function() {
-  const email = "oceanloversy@gmail.com"; // ← 必要に応じて変更可能
-  const subject = encodeURIComponent("UCHI-AWBによる予測結果に関する問い合わせ");
+document.getElementById("videoModeBtn").onclick = () => {
+  imageMode.style.display = "none";
+  videoMode.style.display = "block";
+  videoModeBtn.classList.add("active");
+  imageModeBtn.classList.remove("active");
+};
+
+/* ===================================================== */
+/* 問い合わせフォーム（メールソフト起動） */
+/* ===================================================== */
+
+document.getElementById("contactBtn").onclick = () => {
+  const email = "oceanloversy@gmail.com";  // ←変更可能
+  const subject = encodeURIComponent("予測結果に関する問い合わせ");
   const body = encodeURIComponent("所属：\nお名前：\n問い合わせ内容：\n");
-  const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
-  window.location.href = mailtoLink;
+
+  window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
 };
-  
-window.addEventListener('DOMContentLoaded', () => loadJSON());
+
+window.addEventListener("DOMContentLoaded", loadJSON);
 </script>
+
 </body>
 </html>
