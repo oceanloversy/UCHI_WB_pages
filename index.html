@@ -4,393 +4,266 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PREDICTION of SEA CONDITION AROUND WAKASA BAY by UCHI</title>
+
 <style>
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  text-align: center;
+}
+header {
+  background: linear-gradient(90deg, #004e92, #000428);
+  color: white;
+  padding: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+#wholeArea img {
+  width: 75%;
+  max-width: 800px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+.container {
+  margin: 1.5rem auto;
+  width: 95%;
+  max-width: 900px;
+}
+select, button {
+  margin: 0.4rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+img, video {
+  width: 100%;
+  max-height: 80vh;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background: white;
+}
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+#mode-buttons button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+#mode-buttons button.active {
+  background-color: #0056b3;
+}
 
-<!-- WholeArea.png 表示	<div id="wholeArea"> に全体図を追加（タイトル直下） -->
-<!-- ズーム切替	JSONから自動取得した領域名を「表示エリア」としてプルダウン表示 -->
-<!-- 構成順序	「表示エリア」→「項目」→「日時」→「PREV/NEXT」順に整理 -->
-<!-- 同期動作	静止画／動画ともに同一JSON構造 {AreaX: {var: [path]}} に対応 -->
-<!-- 注記自動表示 SVel / BVel のみ赤矢印注記を表示 -->
-<!-- GitHub Pages互換	cache: 'no-store' により自動更新を常に反映 -->
-<!-- WholeArea.png は images/WholeArea.png に保存 -->
-
-  body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    text-align: center;
-  }
-  header {
-    background: linear-gradient(90deg, #004e92, #000428);
-    color: white;
-    padding: 1.2rem;
-    font-size: 1.4rem;
-    font-weight: bold;
-  }
-
-  #wholeArea {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-  #wholeArea img {
-    width: 75%;
-    max-width: 800px;
-    height: auto;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-  }
-
-  .container {
-    margin: 1.5rem auto;
-    width: 95%;
-    max-width: 900px;
-  }
-
-  select, button {
-    margin: 0.5rem;
-    padding: 0.5rem;
-    font-size: 1rem;
-  }
-
-  img, video {
-    width: 100%;
-    max-height: 80vh;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    background: white;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .btn-group {
-    margin-top: 0.8rem;
-    text-align: center;
-  }
-
-  #mode-buttons {
-    text-align: center;
-    margin-top: 1rem;
-  }
-
-  #mode-buttons button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 0.6rem 1rem;
-    margin: 0.3rem;
-    cursor: pointer;
-  }
-  #mode-buttons button.active {
-    background-color: #0056b3;
-  }
-
-   /* ▼▼ PREV / NEXT ボタンを中央配置 ▼▼ */
-  .btn-group {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 0.8rem;
-  }
-  
-  #imageContainer, #videoContainer {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-  }
-
-  #velocityNoteImage, #velocityNoteVideo {
-    position: absolute;
-    color: red;
-    font-size: 14px;
-    font-weight: bold;
-    display: none;
-  }
-
-/* ===== フッター追加 ===== */
-  footer {
-    margin-top: 2rem;
-    background-color: #e9ecef;
-    color: #555;
-    font-size: 0.9rem;
-    padding: 0.8rem;
-    text-align: center;
-    border-top: 1px solid #ccc;
-  }
-  #contactBtn {
-    display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    text-decoration: none;
-  }
-
-  #contactBtn:hover {
-    background-color: #0056b3;
-  }
+/* お気に入り */
+#favoritePanel {
+  background: #eef2f7;
+  border-radius: 8px;
+  padding: 0.8rem;
+  margin-top: 1rem;
+}
+#favoritePanel button {
+  background-color: #ffc107;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
 </style>
 </head>
 
-
 <body>
-<header>PREDICTION of <br>&emsp;SEA CONDITION by UCHI <br>&emsp;&emsp;AROUND WAKASA BAY</header>
+
+<header>
+PREDICTION of <br>&emsp;SEA CONDITION by UCHI <br>&emsp;&emsp;AROUND WAKASA BAY
+</header>
 
 <div id="wholeArea">
-  <img src="images/WholeArea.png" alt="Whole Area Map">
+  <img src="images/WholeArea.png">
 </div>
 
 <div class="container">
 
-  <!-- モード切替 -->
-  <div id="mode-buttons">
-    <button id="imageModeBtn" class="active">静止画</button>
-    <button id="videoModeBtn">動画</button>
+<!-- モード -->
+<div id="mode-buttons">
+  <button id="imageModeBtn" class="active">静止画</button>
+  <button id="videoModeBtn">動画</button>
+</div>
+
+<!-- ===== お気に入り ===== -->
+<div id="favoritePanel">
+  <strong>お気に入り設計</strong><br>
+  <select id="favoriteSelect"></select>
+  <button onclick="applyFavorite()">適用</button>
+  <button onclick="deleteFavorite()">削除</button>
+  <br>
+  <button onclick="saveFavorite()">★ 現在の表示を保存</button>
+</div>
+
+<!-- ===== 静止画 ===== -->
+<div id="imageMode">
+  <div>
+    エリア：
+    <select id="zoomArea"></select><br>
+    項目：
+    <select id="imageVar">
+      <option value="SVel">10m-Current</option>
+      <option value="BVel">30m-Current</option>
+      <option value="SSS">10m-Salinity</option>
+      <option value="BS">30m-Salinity</option>
+      <option value="SST">10m-Temperature</option>
+      <option value="BT">30m-Temperature</option>
+    </select><br>
+    日時：
+    <select id="imageTime"></select>
   </div>
 
-  <!-- 静止画像モード -->
-  <div id="imageMode">
-    <div>
-      <label>エリア：</label>
-      <select id="zoomArea"></select><br>
-
-      <label>項目&emsp;：</label>
-      <select id="imageVar">
-        <option value="SVel">10m-Current</option>
-        <option value="BVel">30m-Current</option>
-        <option value="SSS">10m-Salinity</option>
-        <option value="BS">30m-Salinity</option>
-        <option value="SST">10m-Temperature</option>
-        <option value="BT">30m-Temperature</option>
-      </select><br>
-
-      <label>日時&emsp;：</label>
-      <select id="imageTime"></select>
-    </div>
-
-    <div class="btn-group">
-      <button id="prevBtn">PREV</button>
-      <button id="nextBtn">NEXT</button>
-    </div>
-
-    <div id="imageContainer">
-      <img id="displayImage" src="">
-      <div id="velocityNoteImage">赤矢印は流速0.5m/s以上</div>
-    </div>
+  <div class="btn-group">
+    <button onclick="shiftImage(-1)">PREV</button>
+    <button onclick="shiftImage(1)">NEXT</button>
   </div>
 
-  <!-- 動画モード -->
-  <div id="videoMode" style="display:none;">
-    <div>
-      <label>表示エリア：</label>
-      <select id="zoomAreaVideo"></select><br>
+  <img id="displayImage">
+</div>
 
-      <label>項目：</label>
-      <select id="videoVar">
-        <option value="SVel">10m-Current</option>
-        <option value="BVel">30m-Current</option>
-        <option value="SSS">10m-Salinity</option>
-        <option value="BS">30m-Salinity</option>
-        <option value="SST">10m-Temperature</option>
-        <option value="BT">30m-Temperature</option>
-      </select>
-    </div>
-
-    <div id="videoContainer">
-      <video id="displayVideo" controls>
-        <source src="">
-      </video>
-      <div id="velocityNoteVideo">赤矢印は流速0.5m/s以上</div>
-    </div>
+<!-- ===== 動画 ===== -->
+<div id="videoMode" style="display:none;">
+  <div>
+    エリア：
+    <select id="zoomAreaVideo"></select><br>
+    項目：
+    <select id="videoVar">
+      <option value="SVel">10m-Current</option>
+      <option value="BVel">30m-Current</option>
+      <option value="SSS">10m-Salinity</option>
+      <option value="BS">30m-Salinity</option>
+      <option value="SST">10m-Temperature</option>
+      <option value="BT">30m-Temperature</option>
+    </select>
   </div>
+  <video id="displayVideo" controls></video>
+</div>
 
 </div>
 
-<footer>
-  <p>当予測結果を使用することによって発生した一切の損害について、何等責任を負いません。</p>
-  <a id="contactBtn" href="#">お問い合わせはこちら</a>
-</footer>
-
 <script>
-let imageData = {};
-let videoData = {};
+let imageData={}, videoData={};
 
-/* ▼▼▼ ここでエリアごとの注記位置を定義 ▼▼▼ */
-const velocityNotePositions = {
-  "Area1": { top: "320px", left: "10px" },
-  "Area2": { top: "380px", left: "10px" },
-  "Area3": { top: "310px", left: "10px" },
-  "WholeArea": { top: "245px", left: "10px" }
-};
-/* ▲▲▲ 必要に応じて自由に追加・変更可 ▲▲▲ */
+/* ===== LocalStorage FAVORITE ===== */
+const FAVORITE_KEY = "UCHI_FAVORITES";
 
-async function loadJSON() {
-  try {
-    const [imgRes, vidRes] = await Promise.all([
-      fetch('image_list.json', { cache: 'no-store' }),
-      fetch('video_list.json', { cache: 'no-store' })
-    ]);
-    imageData = await imgRes.json();
-    videoData = await vidRes.json();
+function loadFavorites(){
+  return JSON.parse(localStorage.getItem(FAVORITE_KEY) || "{}");
+}
+function saveFavorites(obj){
+  localStorage.setItem(FAVORITE_KEY, JSON.stringify(obj));
+  updateFavoriteSelect();
+}
 
-    populateZoomOptions();
+function updateFavoriteSelect(){
+  const sel = favoriteSelect;
+  sel.innerHTML="";
+  const fav = loadFavorites();
+  Object.keys(fav).forEach(k=>{
+    const o=document.createElement("option");
+    o.value=k; o.textContent=k;
+    sel.appendChild(o);
+  });
+}
+
+function saveFavorite(){
+  const name = prompt("お気に入り名を入力してください");
+  if(!name) return;
+  const fav = loadFavorites();
+
+  fav[name] = imageMode.style.display!=="none" ? {
+    mode:"image",
+    area:zoomArea.value,
+    var:imageVar.value,
+    time:imageTime.value
+  } : {
+    mode:"video",
+    area:zoomAreaVideo.value,
+    var:videoVar.value
+  };
+  saveFavorites(fav);
+}
+
+function applyFavorite(){
+  const fav = loadFavorites()[favoriteSelect.value];
+  if(!fav) return;
+
+  if(fav.mode==="image"){
+    imageModeBtn.click();
+    zoomArea.value=fav.area;
+    imageVar.value=fav.var;
     populateTimeOptions();
-    registerImageEvents();
-    registerVideoEvents();
-
-  } catch (e) {
-    console.warn("JSON not found.");
+    imageTime.value=fav.time;
+    updateImage();
+  }else{
+    videoModeBtn.click();
+    zoomAreaVideo.value=fav.area;
+    videoVar.value=fav.var;
+    updateVideo();
   }
 }
 
-function populateZoomOptions() {
-  const zoom = document.getElementById('zoomArea');
-  zoom.innerHTML = "";
-
-  Object.keys(imageData).forEach(a => {
-    const opt = document.createElement("option");
-    opt.value = opt.textContent = a;
-    zoom.appendChild(opt);
-  });
-
-  document.getElementById("zoomAreaVideo").innerHTML = zoom.innerHTML;
+function deleteFavorite(){
+  const fav = loadFavorites();
+  delete fav[favoriteSelect.value];
+  saveFavorites(fav);
 }
 
-function populateTimeOptions() {
-  const varSel = imageVar.value;
-  const areaSel = zoomArea.value;
-
-  if (!imageData[areaSel] || !imageData[areaSel][varSel]) return;
-
-  const entries = imageData[areaSel][varSel];
-  imageTime.innerHTML = "";
-
-  entries.forEach(e => {
-    const opt = document.createElement("option");
-    opt.value = e.path;
-    opt.textContent = e.datetime;
-    imageTime.appendChild(opt);
+/* ===== 既存処理（最小限） ===== */
+async function loadJSON(){
+  imageData = await (await fetch("image_list.json",{cache:"no-store"})).json();
+  videoData = await (await fetch("video_list.json",{cache:"no-store"})).json();
+  populateZoomOptions();
+  updateFavoriteSelect();
+}
+function populateZoomOptions(){
+  zoomArea.innerHTML="";
+  Object.keys(imageData).forEach(a=>{
+    zoomArea.innerHTML+=`<option>${a}</option>`;
   });
-
+  zoomAreaVideo.innerHTML=zoomArea.innerHTML;
+  populateTimeOptions();
+}
+function populateTimeOptions(){
+  const arr=imageData[zoomArea.value][imageVar.value];
+  imageTime.innerHTML="";
+  arr.forEach(e=>{
+    imageTime.innerHTML+=`<option value="${e.path}">${e.datetime}</option>`;
+  });
+  updateImage();
+}
+function updateImage(){ displayImage.src=imageTime.value; }
+function updateVideo(){
+  displayVideo.src=videoData[zoomAreaVideo.value][videoVar.value][0].path;
+}
+function shiftImage(d){
+  imageTime.selectedIndex+=d;
   updateImage();
 }
 
-function updateImage() {
-  const path = imageTime.value;
-  const varSel = imageVar.value;
-  const areaSel = zoomArea.value;
+imageVar.onchange=populateTimeOptions;
+zoomArea.onchange=populateTimeOptions;
+imageTime.onchange=updateImage;
+videoVar.onchange=updateVideo;
+zoomAreaVideo.onchange=updateVideo;
 
-  if (!path) return;
-
-  displayImage.src = path;
-
-  const note = document.getElementById("velocityNoteImage");
-  if (varSel === "SVel" || varSel === "BVel") {
-    note.style.display = "block";
-
-    const pos = velocityNotePositions[areaSel];
-    if (pos) {
-      note.style.top = pos.top || "20px";
-      note.style.left = pos.left || "";
-      note.style.right = pos.right || "";
-    } else {
-      note.style.top = "20px";
-      note.style.right = "90px";
-      note.style.left = "";
-    }
-
-  } else {
-    note.style.display = "none";
-  }
-}
-
-document.getElementById("prevBtn").onclick = () => shiftImage(-1);
-document.getElementById("nextBtn").onclick = () => shiftImage(1);
-
-function shiftImage(offset) {
-  const idx = imageTime.selectedIndex;
-  const newIdx = idx + offset;
-  if (newIdx >= 0 && newIdx < imageTime.options.length) {
-    imageTime.selectedIndex = newIdx;
-    updateImage();
-  }
-}
-
-function registerImageEvents() {
-  imageVar.onchange = populateTimeOptions;
-  zoomArea.onchange = populateTimeOptions;
-  imageTime.onchange = updateImage;
-}
-
-function updateVideo() {
-  const areaSel = zoomAreaVideo.value;
-  const varSel = videoVar.value;
-
-  if (!videoData[areaSel] || !videoData[areaSel][varSel]) return;
-
-  const entry = videoData[areaSel][varSel][0];
-  if (!entry) return;
-
-  displayVideo.src = entry.path;
-  displayVideo.load();
-
-  const note = document.getElementById('velocityNoteVideo');
-  if (varSel === 'SVel' || varSel === 'BVel') {
-    note.style.display = "block";
-
-    const pos = velocityNotePositions[areaSel];
-    if (pos) {
-      note.style.top = pos.top || "20px";
-      note.style.left = pos.left || "";
-      note.style.right = pos.right || "";
-    } else {
-      note.style.top = "20px";
-      note.style.right = "90px";
-      note.style.left = "";
-    }
-
-  } else {
-    note.style.display = "none";
-  }
-}
-
-function registerVideoEvents() {
-  videoVar.onchange = updateVideo;
-  zoomAreaVideo.onchange = updateVideo;
-}
-
-document.getElementById("imageModeBtn").onclick = () => {
-  imageMode.style.display = "block";
-  videoMode.style.display = "none";
-  imageModeBtn.classList.add("active");
-  videoModeBtn.classList.remove("active");
+imageModeBtn.onclick=()=>{
+  imageMode.style.display="block";videoMode.style.display="none";
+};
+videoModeBtn.onclick=()=>{
+  imageMode.style.display="none";videoMode.style.display="block";
 };
 
-document.getElementById("videoModeBtn").onclick = () => {
-  imageMode.style.display = "none";
-  videoMode.style.display = "block";
-  videoModeBtn.classList.add("active");
-  imageModeBtn.classList.remove("active");
-};
-
-/* ===================================================== */
-/* 問い合わせフォーム（メールソフト起動） */
-/* ===================================================== */
-
-document.getElementById("contactBtn").onclick = () => {
-  const email = "oceanloversy@gmail.com";  // ←変更可能
-  const subject = encodeURIComponent("UCHI-AWBによる予測結果に関する問い合わせ");
-  const body = encodeURIComponent("所属：\nお名前：\n問い合わせ内容：\n");
-
-  window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-};
-
-window.addEventListener("DOMContentLoaded", loadJSON);
+window.onload=loadJSON;
 </script>
 
 </body>
