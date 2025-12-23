@@ -89,6 +89,15 @@ img, video {
   background-color: #0056b3;
 }
 
+/* ===== 速度注記（追加） ===== */
+.velocity-note {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: #c00000;
+  font-weight: bold;
+  display: none;
+}
+
 /* ===== フッター ===== */
 footer {
   margin-top: 2rem;
@@ -106,7 +115,7 @@ footer {
   text-decoration: none;
 }
 
-/* ===== 削除確認モーダル（追加） ===== */
+/* ===== 削除確認モーダル ===== */
 #deleteModal {
   position: fixed;
   inset: 0;
@@ -136,9 +145,8 @@ footer {
   <img src="images/WholeArea.png">
 </div>
 
-<!-- ★★★★★ お気に入りページ ★★★★★ -->
 <div id="favoritePage">
-  <h3> ⭐ お気に入りページ ⭐ </h3>
+  <h3> お気に入りページ </h3>
   <div id="favoritePageList"></div>
   <div class="favorite-note">
     静止画/動画・エリア・項目を選択後、最下部の設計名を記入して、お気に入り登録ボタンを押すと、ここにその内容が登録されます
@@ -147,7 +155,6 @@ footer {
 
 <div class="container">
 
-<!-- ===== モード切替 ===== -->
 <div id="mode-buttons">
   <button id="imageModeBtn" class="active">静止画</button>
   <button id="videoModeBtn">動画</button>
@@ -177,6 +184,9 @@ footer {
   </div>
 
   <img id="displayImage">
+  <div id="imageVelocityNote" class="velocity-note">
+    赤矢印は流速0.5m/s以上
+  </div>
 
   <div>
     <input id="favNameImage" placeholder="設計名">
@@ -200,6 +210,9 @@ footer {
   </select>
 
   <video id="displayVideo" controls></video>
+  <div id="videoVelocityNote" class="velocity-note">
+    赤矢印は流速0.5m/s以上
+  </div>
 
   <div>
     <input id="favNameVideo" placeholder="設計名">
@@ -212,10 +225,8 @@ footer {
 <footer>
 <p>当予測結果を使用することによって発生した一切の損害について、何等責任を負いません。</p>
 <a id="contactBtn" href="#">開発者へのお問い合わせはこちら</a>
-<br>
 </footer>
 
-<!-- ===== 削除確認モーダル ===== -->
 <div id="deleteModal">
   <div id="deleteModalContent">
     <p>このお気に入りを削除してもよろしいですか？</p>
@@ -229,14 +240,12 @@ let imageData = {}, videoData = {};
 const FAV_KEY = "uchi_favorites";
 let deleteTargetName = null;
 
-/* ===== JSON ===== */
 async function loadJSON(){
   imageData = await (await fetch("image_list.json",{cache:"no-store"})).json();
   videoData = await (await fetch("video_list.json",{cache:"no-store"})).json();
   initUI();
 }
 
-/* ===== UI ===== */
 function initUI(){
   zoomArea.innerHTML = zoomAreaVideo.innerHTML =
     Object.keys(imageData).map(a=>`<option>${a}</option>`).join("");
@@ -244,7 +253,15 @@ function initUI(){
   renderFavorites();
 }
 
-/* ===== 静止画 ===== */
+function toggleVelocityNote(mode, varName){
+  const show = (varName === "SVel" || varName === "BVel");
+  if(mode === "image"){
+    imageVelocityNote.style.display = show ? "block" : "none";
+  }else{
+    videoVelocityNote.style.display = show ? "block" : "none";
+  }
+}
+
 function populateTime(){
   const a=zoomArea.value,v=imageVar.value;
   imageTime.innerHTML="";
@@ -252,9 +269,12 @@ function populateTime(){
     imageTime.innerHTML+=`<option value="${e.path}">${e.datetime}</option>`;
   });
   displayImage.src=imageTime.value;
+  toggleVelocityNote("image", v);
 }
+
 prevBtn.onclick=()=>shift(-1);
 nextBtn.onclick=()=>shift(1);
+
 function shift(d){
   const i=imageTime.selectedIndex+d;
   if(i>=0 && i<imageTime.options.length){
@@ -262,19 +282,19 @@ function shift(d){
     displayImage.src=imageTime.value;
   }
 }
+
 imageVar.onchange=populateTime;
 zoomArea.onchange=populateTime;
 imageTime.onchange=()=>displayImage.src=imageTime.value;
 
-/* ===== 動画 ===== */
 function updateVideo(){
   const a=zoomAreaVideo.value,v=videoVar.value;
   displayVideo.src=videoData[a][v][0].path;
+  toggleVelocityNote("video", v);
 }
 videoVar.onchange=updateVideo;
 zoomAreaVideo.onchange=updateVideo;
 
-/* ===== モード ===== */
 imageModeBtn.onclick=()=>{
   imageMode.style.display="block";
   videoMode.style.display="none";
@@ -288,7 +308,6 @@ videoModeBtn.onclick=()=>{
   imageModeBtn.classList.remove("active");
 };
 
-/* ===== お気に入り ===== */
 function getFav(){ return JSON.parse(localStorage.getItem(FAV_KEY)||"{}"); }
 function saveFav(o){ localStorage.setItem(FAV_KEY,JSON.stringify(o)); }
 
@@ -320,14 +339,13 @@ function applyFavorite(name){
   }
 }
 
-/* ===== 削除確認ラッパー ===== */
 function requestDelete(name){
   deleteTargetName = name;
-  document.getElementById("deleteModal").style.display="flex";
+  deleteModal.style.display="flex";
 }
 function closeDeleteModal(){
   deleteTargetName = null;
-  document.getElementById("deleteModal").style.display="none";
+  deleteModal.style.display="none";
 }
 function confirmDelete(){
   if(deleteTargetName){
@@ -353,16 +371,13 @@ function renderFavorites(){
   }
 }
 
-/* ===== 問い合わせ（メーラー起動） ===== */
 contactBtn.onclick = () => {
   const to = "oceanloversy@gmail.com";
   const subject = encodeURIComponent("UCHI_AWBに関する問い合わせ");
-
   const body = encodeURIComponent(
     "問い合わせ内容：\n\n" +
     "本ページに関する要望等：\n"
   );
-
   window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
 };
 
