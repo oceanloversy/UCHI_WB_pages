@@ -163,13 +163,18 @@ function renderFavorites(){
     const d=fav[name];
     const box=document.createElement("div");
     box.className="favorite-item";
-    box.innerHTML=`
-      <span>${name}</span>
-      <button onclick="applyFavorite('${name}')">表示</button>
-      <button onclick="startEdit('${name}')">編集</button>
-      <button onclick="deleteFavorite('${name}')">削除</button>
-      <div class="edit-box" id="edit-${name}" style="display:none;"></div>
-    `;
+  box.innerHTML = `
+    登録名：
+    <input id="eName-${name}" value="${name}">
+    <br>
+    Area：
+    <select id="eArea-${name}">${areaOpts}</select>
+    項目：
+    <select id="eVar-${name}">${varOpts}</select>
+    <br>
+    <button onclick="saveEdit('${name}')">保存</button>
+    <button onclick="cancelEdit('${name}')">取消</button>
+  `;
     (d.mode==="image"?favoriteListImage:favoriteListVideo).appendChild(box);
   });
 }
@@ -194,11 +199,35 @@ function startEdit(name){
   document.getElementById(`eVar-${name}`).value=fav.var;
 }
 
-function saveEdit(name){
-  const f=getFav();
-  f[name].area=document.getElementById(`eArea-${name}`).value;
-  f[name].var=document.getElementById(`eVar-${name}`).value;
-  saveFav(f); renderFavorites();
+function saveEdit(oldName){
+  const f = getFav();
+
+  const newName = document.getElementById(`eName-${oldName}`).value.trim();
+  const newArea = document.getElementById(`eArea-${oldName}`).value;
+  const newVar  = document.getElementById(`eVar-${oldName}`).value;
+
+  if (!newName) {
+    alert("登録名を入力してください");
+    return;
+  }
+
+  // 登録名変更＋重複チェック
+  if (newName !== oldName && f[newName]) {
+    alert("同じ登録名が既に存在します");
+    return;
+  }
+
+  const data = f[oldName];
+  delete f[oldName];
+
+  f[newName] = {
+    ...data,
+    area: newArea,
+    var: newVar
+  };
+
+  saveFav(f);
+  renderFavorites();
 }
 function cancelEdit(name){
   document.getElementById(`edit-${name}`).style.display="none";
