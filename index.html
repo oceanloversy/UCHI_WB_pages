@@ -6,74 +6,117 @@
 <title>PREDICTION of SEA CONDITION AROUND WAKASA BAY by UCHI</title>
 
 <style>
-body { font-family: "Segoe UI", Arial, sans-serif; background:#f8f9fa; margin:0; text-align:center; }
-header { background:linear-gradient(90deg,#004e92,#000428); color:#fff; padding:1.2rem; font-size:1.4rem; font-weight:bold; }
-
-#wholeArea img {
-  width:75%; max-width:800px; border:2px solid #ccc; border-radius:10px;
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  text-align: center;
+}
+header {
+  background: linear-gradient(90deg, #004e92, #000428);
+  color: white;
+  padding: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
-.container { margin:1.5rem auto; width:95%; max-width:900px; }
-select, button, input { margin:0.4rem; padding:0.4rem; font-size:1rem; }
-img, video { width:100%; max-height:80vh; border:2px solid #ccc; border-radius:10px; background:#fff; }
+#wholeArea {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+#wholeArea img {
+  width: 75%;
+  max-width: 800px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
 
-.btn-group { display:flex; justify-content:center; gap:1rem; margin-top:0.8rem; }
-#mode-buttons button { background:#007bff; color:#fff; border:none; border-radius:6px; padding:0.6rem 1rem; }
-#mode-buttons button.active { background:#0056b3; }
+.container {
+  margin: 1.5rem auto;
+  width: 95%;
+  max-width: 900px;
+}
 
-/* ===== 登録ページ ===== */
-#favoritePage {
-  margin:1rem auto;
-  padding:1rem;
-  background:#ffffff;
-  border:1px solid #ccc;
-  border-radius:10px;
-  max-width:900px;
+select, button, input {
+  margin: 0.4rem;
+  padding: 0.4rem;
+  font-size: 1rem;
+}
+
+img, video {
+  width: 100%;
+  max-height: 80vh;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background: white;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+
+#mode-buttons button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+#mode-buttons button.active {
+  background-color: #0056b3;
+}
+
+/* ===== お気に入り ===== */
+.favorite-box {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  background: #ffffff;
+}
+.favorite-box h3 {
+  margin: 0.3rem 0;
+  font-size: 1.1rem;
+}
+.favorite-list {
+  margin-top: 0.5rem;
 }
 .favorite-item {
-  margin:0.3rem 0;
-}
-.favorite-item span {
-  font-weight:bold;
+  margin: 0.3rem 0;
 }
 .favorite-item button {
-  margin-left:0.3rem;
+  margin-left: 0.5rem;
 }
 
-/* ===== 登録フォーム ===== */
-.favorite-box {
-  margin-top:1rem;
-  padding:0.8rem;
-  border:1px solid #ccc;
-  border-radius:8px;
-  background:#ffffff;
-}
-
-/* ===== footer ===== */
+/* ===== フッター ===== */
 footer {
-  margin-top:2rem;
-  background:#e9ecef;
-  padding:0.8rem;
-  font-size:0.9rem;
+  margin-top: 2rem;
+  background-color: #e9ecef;
+  color: #555;
+  font-size: 0.9rem;
+  padding: 0.8rem;
+  border-top: 1px solid #ccc;
+}
+#contactBtn {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
 }
 </style>
 </head>
 
 <body>
+<header>PREDICTION of <br>SEA CONDITION by UCHI<br>AROUND WAKASA BAY</header>
 
-<header>
-PREDICTION of <br>SEA CONDITION by UCHI<br>AROUND WAKASA BAY
-</header>
-
-<!-- ===== WholeArea ===== -->
 <div id="wholeArea">
   <img src="images/WholeArea.png">
-</div>
-
-<!-- ===== 登録ページ ===== -->
-<div id="favoritePage">
-  <h2>登録ページ</h2>
-  <div id="favoriteList"></div>
 </div>
 
 <div class="container">
@@ -84,9 +127,13 @@ PREDICTION of <br>SEA CONDITION by UCHI<br>AROUND WAKASA BAY
   <button id="videoModeBtn">動画</button>
 </div>
 
-<!-- ===== 静止画 ===== -->
+<!-- ================= 静止画 ================= -->
 <div id="imageMode">
-  <select id="zoomArea"></select>
+
+  <label>エリア：</label>
+  <select id="zoomArea"></select><br>
+
+  <label>項目：</label>
   <select id="imageVar">
     <option value="SST">10m-Temperature</option>
     <option value="BT">30m-Temperature</option>
@@ -94,7 +141,9 @@ PREDICTION of <br>SEA CONDITION by UCHI<br>AROUND WAKASA BAY
     <option value="BS">30m-Salinity</option>
     <option value="SVel">10m-Current</option>
     <option value="BVel">30m-Current</option>
-  </select>
+  </select><br>
+
+  <label>日時：</label>
   <select id="imageTime"></select>
 
   <div class="btn-group">
@@ -104,16 +153,22 @@ PREDICTION of <br>SEA CONDITION by UCHI<br>AROUND WAKASA BAY
 
   <img id="displayImage">
 
+  <!-- ★お気に入り -->
   <div class="favorite-box">
-    <h3>お気に入り登録（静止画）</h3>
-    <input id="favNameImage" placeholder="登録名">
+    <h3>⭐ お気に入り（静止画）</h3>
+    <input id="favNameImage" placeholder="設計名">
     <button onclick="saveFavorite('image')">登録</button>
+    <div id="favoriteImageList" class="favorite-list"></div>
   </div>
 </div>
 
-<!-- ===== 動画 ===== -->
+<!-- ================= 動画 ================= -->
 <div id="videoMode" style="display:none;">
-  <select id="zoomAreaVideo"></select>
+
+  <label>エリア：</label>
+  <select id="zoomAreaVideo"></select><br>
+
+  <label>項目：</label>
   <select id="videoVar">
     <option value="SST">10m-Temperature</option>
     <option value="BT">30m-Temperature</option>
@@ -125,10 +180,12 @@ PREDICTION of <br>SEA CONDITION by UCHI<br>AROUND WAKASA BAY
 
   <video id="displayVideo" controls></video>
 
+  <!-- ★お気に入り -->
   <div class="favorite-box">
-    <h3>お気に入り登録（動画）</h3>
-    <input id="favNameVideo" placeholder="登録名">
+    <h3>⭐ お気に入り（動画）</h3>
+    <input id="favNameVideo" placeholder="設計名">
     <button onclick="saveFavorite('video')">登録</button>
+    <div id="favoriteVideoList" class="favorite-list"></div>
   </div>
 </div>
 
@@ -136,28 +193,87 @@ PREDICTION of <br>SEA CONDITION by UCHI<br>AROUND WAKASA BAY
 
 <footer>
 <p>当予測結果を使用することによって発生した一切の損害について、何等責任を負いません。</p>
+<a id="contactBtn" href="#">お問い合わせはこちら</a>
 </footer>
 
 <script>
-let imageData={}, videoData={};
-const KEY="uchi_favorites";
+let imageData = {}, videoData = {};
+const FAV_KEY = "uchi_favorites";
 
-/* ===== util ===== */
-const getFav=()=>JSON.parse(localStorage.getItem(KEY)||"{}");
-const saveFav=o=>localStorage.setItem(KEY,JSON.stringify(o));
-
-/* ===== favorite ===== */
-function saveFavorite(mode){
-  const name = mode==="image"?favNameImage.value:favNameVideo.value;
-  if(!name) return alert("登録名を入力してください");
-  const f=getFav();
-  f[name]={mode, area:mode==="image"?zoomArea.value:zoomAreaVideo.value,
-           var:mode==="image"?imageVar.value:videoVar.value};
-  saveFav(f); renderFavorites();
+/* ===== JSON ===== */
+async function loadJSON(){
+  imageData = await (await fetch("image_list.json",{cache:"no-store"})).json();
+  videoData = await (await fetch("video_list.json",{cache:"no-store"})).json();
+  initUI();
 }
 
-function applyFavorite(n){
-  const f=getFav()[n];
+/* ===== UI ===== */
+function initUI(){
+  zoomArea.innerHTML = zoomAreaVideo.innerHTML =
+    Object.keys(imageData).map(a=>`<option>${a}</option>`).join("");
+  populateTime();
+  renderFavorites();
+}
+
+/* ===== 静止画 ===== */
+function populateTime(){
+  const a=zoomArea.value,v=imageVar.value;
+  imageTime.innerHTML="";
+  imageData[a][v].forEach(e=>{
+    imageTime.innerHTML+=`<option value="${e.path}">${e.datetime}</option>`;
+  });
+  displayImage.src=imageTime.value;
+}
+prevBtn.onclick=()=>shift(-1);
+nextBtn.onclick=()=>shift(1);
+function shift(d){
+  imageTime.selectedIndex+=d;
+  displayImage.src=imageTime.value;
+}
+imageVar.onchange=populateTime;
+zoomArea.onchange=populateTime;
+imageTime.onchange=()=>displayImage.src=imageTime.value;
+
+/* ===== 動画 ===== */
+function updateVideo(){
+  const a=zoomAreaVideo.value,v=videoVar.value;
+  displayVideo.src=videoData[a][v][0].path;
+}
+videoVar.onchange=updateVideo;
+zoomAreaVideo.onchange=updateVideo;
+
+/* ===== モード ===== */
+imageModeBtn.onclick=()=>{
+  imageMode.style.display="block";
+  videoMode.style.display="none";
+  imageModeBtn.classList.add("active");
+  videoModeBtn.classList.remove("active");
+};
+videoModeBtn.onclick=()=>{
+  imageMode.style.display="none";
+  videoMode.style.display="block";
+  videoModeBtn.classList.add("active");
+  imageModeBtn.classList.remove("active");
+};
+
+/* ===== お気に入り ===== */
+function getFav(){ return JSON.parse(localStorage.getItem(FAV_KEY)||"{}"); }
+function saveFav(o){ localStorage.setItem(FAV_KEY,JSON.stringify(o)); }
+
+function saveFavorite(mode){
+  const name = mode==="image"?favNameImage.value:favNameVideo.value;
+  if(!name) return alert("設計名を入力");
+  const fav=getFav();
+  fav[name]={
+    mode:mode,
+    area: mode==="image"?zoomArea.value:zoomAreaVideo.value,
+    var: mode==="image"?imageVar.value:videoVar.value
+  };
+  saveFav(fav); renderFavorites();
+}
+
+function applyFavorite(name){
+  const f=getFav()[name];
   if(f.mode==="image"){
     imageModeBtn.click();
     zoomArea.value=f.area; imageVar.value=f.var; populateTime();
@@ -167,68 +283,28 @@ function applyFavorite(n){
   }
 }
 
-function editFavorite(n){
-  const f=getFav();
-  const d=f[n];
-  const newName=prompt("登録名",n);
-  if(!newName) return;
-  d.area=prompt("Area",d.area)||d.area;
-  d.var=prompt("項目",d.var)||d.var;
-  delete f[n];
-  f[newName]=d;
-  saveFav(f); renderFavorites();
-}
-
-function deleteFavorite(n){
-  const f=getFav(); delete f[n]; saveFav(f); renderFavorites();
+function deleteFavorite(name){
+  const f=getFav(); delete f[name]; saveFav(f); renderFavorites();
 }
 
 function renderFavorites(){
-  const box=document.getElementById("favoriteList");
-  box.innerHTML="";
+  favoriteImageList.innerHTML="";
+  favoriteVideoList.innerHTML="";
   const f=getFav();
   for(const k in f){
     const div=document.createElement("div");
     div.className="favorite-item";
-    div.innerHTML=
-      `<span>${k}</span> (${f[k].mode})
-       <button onclick="applyFavorite('${k}')">表示</button>
-       <button onclick="editFavorite('${k}')">編集</button>
-       <button onclick="deleteFavorite('${k}')">削除</button>`;
-    box.appendChild(div);
+    div.innerHTML=`${k}
+      <button onclick="applyFavorite('${k}')">表示</button>
+      <button onclick="deleteFavorite('${k}')">削除</button>`;
+    (f[k].mode==="image"?favoriteImageList:favoriteVideoList).appendChild(div);
   }
 }
 
-/* ===== data ===== */
-async function loadJSON(){
-  imageData=await (await fetch("image_list.json",{cache:"no-store"})).json();
-  videoData=await (await fetch("video_list.json",{cache:"no-store"})).json();
-  zoomArea.innerHTML=zoomAreaVideo.innerHTML=
-    Object.keys(imageData).map(a=>`<option>${a}</option>`).join("");
-  populateTime(); renderFavorites();
-}
-
-function populateTime(){
-  const a=zoomArea.value,v=imageVar.value;
-  imageTime.innerHTML="";
-  imageData[a][v].forEach(e=>{
-    imageTime.innerHTML+=`<option value="${e.path}">${e.datetime}</option>`;
-  });
-  displayImage.src=imageTime.value;
-}
-prevBtn.onclick=()=>imageTime.selectedIndex=Math.max(0,imageTime.selectedIndex-1);
-nextBtn.onclick=()=>imageTime.selectedIndex=Math.min(imageTime.length-1,imageTime.selectedIndex+1);
-imageTime.onchange=()=>displayImage.src=imageTime.value;
-imageVar.onchange=populateTime; zoomArea.onchange=populateTime;
-
-function updateVideo(){
-  const a=zoomAreaVideo.value,v=videoVar.value;
-  displayVideo.src=videoData[a][v][0].path;
-}
-videoVar.onchange=updateVideo; zoomAreaVideo.onchange=updateVideo;
-
-imageModeBtn.onclick=()=>{imageMode.style.display="block";videoMode.style.display="none";};
-videoModeBtn.onclick=()=>{imageMode.style.display="none";videoMode.style.display="block";};
+/* ===== 問い合わせ ===== */
+contactBtn.onclick=()=>{
+  location.href="mailto:oceanloversy@gmail.com?subject=UCHI問い合わせ";
+};
 
 loadJSON();
 </script>
