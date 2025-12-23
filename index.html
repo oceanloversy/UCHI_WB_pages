@@ -41,10 +41,6 @@ header {
   border-radius: 10px;
   padding: 1rem;
 }
-#favoritePage h2 {
-  margin: 0.5rem 0 1rem 0;
-  font-size: 1.3rem;
-}
 .favorite-item {
   margin: 0.4rem 0;
 }
@@ -55,6 +51,29 @@ header {
   margin-top: 0.8rem;
   font-size: 0.85rem;
   color: #555;
+}
+
+/* ===== モーダル ===== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 999;
+}
+.modal-box {
+  background: white;
+  width: 90%;
+  max-width: 360px;
+  margin: 20vh auto;
+  padding: 1.2rem;
+  border-radius: 10px;
+}
+.modal-box p {
+  margin-bottom: 1rem;
+}
+.modal-box button {
+  margin: 0 0.4rem;
 }
 
 /* ===== 共通 ===== */
@@ -74,23 +93,6 @@ img, video {
   border: 2px solid #ccc;
   border-radius: 10px;
   background: white;
-}
-.btn-group {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 0.8rem;
-}
-#mode-buttons button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 0.6rem 1rem;
-  cursor: pointer;
-}
-#mode-buttons button.active {
-  background-color: #0056b3;
 }
 
 /* ===== フッター ===== */
@@ -121,75 +123,20 @@ footer {
 
 <!-- ★★★★★ お気に入りページ ★★★★★ -->
 <div id="favoritePage">
-  <h3>⭐ お気に入りページ ⭐</h3>
+  <h3> お気に入りページ </h3>
   <div id="favoritePageList"></div>
   <div class="favorite-note">
     静止画/動画・エリア・項目を選択後、ページ最下部の設計名を記入してお気に入り登録ボタンを押してください
   </div>
 </div>
 
-<div class="container">
-
-<!-- ===== モード切替 ===== -->
-<div id="mode-buttons">
-  <button id="imageModeBtn" class="active">静止画</button>
-  <button id="videoModeBtn">動画</button>
-</div>
-
-<!-- ================= 静止画 ================= -->
-<div id="imageMode">
-  <label>エリア：</label>
-  <select id="zoomArea"></select><br>
-
-  <label>項目：</label>
-  <select id="imageVar">
-    <option value="SST">10m-Temperature</option>
-    <option value="BT">30m-Temperature</option>
-    <option value="SSS">10m-Salinity</option>
-    <option value="BS">30m-Salinity</option>
-    <option value="SVel">10m-Current</option>
-    <option value="BVel">30m-Current</option>
-  </select><br>
-
-  <label>日時：</label>
-  <select id="imageTime"></select>
-
-  <div class="btn-group">
-    <button id="prevBtn">PREV</button>
-    <button id="nextBtn">NEXT</button>
+<!-- ===== 削除確認モーダル ===== -->
+<div id="deleteModal" class="modal-overlay">
+  <div class="modal-box">
+    <p>このお気に入りを削除してもよろしいですか？</p>
+    <button onclick="executeDeleteFavorite()">削除する</button>
+    <button onclick="closeDeleteModal()">キャンセル</button>
   </div>
-
-  <img id="displayImage">
-
-  <div>
-    <input id="favNameImage" placeholder="設計名">
-    <button onclick="saveFavorite('image')">お気に入り登録</button>
-  </div>
-</div>
-
-<!-- ================= 動画 ================= -->
-<div id="videoMode" style="display:none;">
-  <label>エリア：</label>
-  <select id="zoomAreaVideo"></select><br>
-
-  <label>項目：</label>
-  <select id="videoVar">
-    <option value="SST">10m-Temperature</option>
-    <option value="BT">30m-Temperature</option>
-    <option value="SSS">10m-Salinity</option>
-    <option value="BS">30m-Salinity</option>
-    <option value="SVel">10m-Current</option>
-    <option value="BVel">30m-Current</option>
-  </select>
-
-  <video id="displayVideo" controls></video>
-
-  <div>
-    <input id="favNameVideo" placeholder="設計名">
-    <button onclick="saveFavorite('video')">お気に入り登録</button>
-  </div>
-</div>
-
 </div>
 
 <footer>
@@ -198,105 +145,31 @@ footer {
 </footer>
 
 <script>
-let imageData = {}, videoData = {};
 const FAV_KEY = "uchi_favorites";
-
-/* ===== JSON ===== */
-async function loadJSON(){
-  imageData = await (await fetch("image_list.json",{cache:"no-store"})).json();
-  videoData = await (await fetch("video_list.json",{cache:"no-store"})).json();
-  initUI();
-}
-
-/* ===== UI ===== */
-function initUI(){
-  zoomArea.innerHTML = zoomAreaVideo.innerHTML =
-    Object.keys(imageData).map(a=>`<option>${a}</option>`).join("");
-  populateTime();
-  renderFavorites();
-}
-
-/* ===== 静止画 ===== */
-function populateTime(){
-  const a=zoomArea.value,v=imageVar.value;
-  imageTime.innerHTML="";
-  imageData[a][v].forEach(e=>{
-    imageTime.innerHTML+=`<option value="${e.path}">${e.datetime}</option>`;
-  });
-  displayImage.src=imageTime.value;
-}
-prevBtn.onclick=()=>shift(-1);
-nextBtn.onclick=()=>shift(1);
-function shift(d){
-  const i=imageTime.selectedIndex+d;
-  if(i>=0 && i<imageTime.options.length){
-    imageTime.selectedIndex=i;
-    displayImage.src=imageTime.value;
-  }
-}
-imageVar.onchange=populateTime;
-zoomArea.onchange=populateTime;
-imageTime.onchange=()=>displayImage.src=imageTime.value;
-
-/* ===== 動画 ===== */
-function updateVideo(){
-  const a=zoomAreaVideo.value,v=videoVar.value;
-  displayVideo.src=videoData[a][v][0].path;
-}
-videoVar.onchange=updateVideo;
-zoomAreaVideo.onchange=updateVideo;
-
-/* ===== モード ===== */
-imageModeBtn.onclick=()=>{
-  imageMode.style.display="block";
-  videoMode.style.display="none";
-  imageModeBtn.classList.add("active");
-  videoModeBtn.classList.remove("active");
-};
-videoModeBtn.onclick=()=>{
-  imageMode.style.display="none";
-  videoMode.style.display="block";
-  videoModeBtn.classList.add("active");
-  imageModeBtn.classList.remove("active");
-};
+let deleteTarget = null;
 
 /* ===== お気に入り ===== */
 function getFav(){ return JSON.parse(localStorage.getItem(FAV_KEY)||"{}"); }
 function saveFav(o){ localStorage.setItem(FAV_KEY,JSON.stringify(o)); }
 
-function saveFavorite(mode){
-  const name = mode==="image"?favNameImage.value:favNameVideo.value;
-  if(!name) return alert("設計名を入力してください");
-  const fav=getFav();
-  fav[name]={
-    mode:mode,
-    area: mode==="image"?zoomArea.value:zoomAreaVideo.value,
-    var: mode==="image"?imageVar.value:videoVar.value
-  };
-  saveFav(fav);
-  renderFavorites();
+function confirmDeleteFavorite(name){
+  deleteTarget = name;
+  document.getElementById("deleteModal").style.display = "block";
 }
 
-function applyFavorite(name){
-  const f=getFav()[name];
-  if(f.mode==="image"){
-    imageModeBtn.click();
-    zoomArea.value=f.area;
-    imageVar.value=f.var;
-    populateTime();
-  }else{
-    videoModeBtn.click();
-    zoomAreaVideo.value=f.area;
-    videoVar.value=f.var;
-    updateVideo();
+function executeDeleteFavorite(){
+  if(deleteTarget){
+    const f = getFav();
+    delete f[deleteTarget];
+    saveFav(f);
+    deleteTarget = null;
+    renderFavorites();
   }
+  closeDeleteModal();
 }
 
-function deleteFavorite(name){
-  const f=getFav();
-  delete f[name];
-  saveFav(f);
-  renderFavorites();
+function closeDeleteModal(){
+  document.getElementById("deleteModal").style.display = "none";
 }
 
 function renderFavorites(){
@@ -308,7 +181,7 @@ function renderFavorites(){
     div.className="favorite-item";
     div.innerHTML=`${k}
       <button onclick="applyFavorite('${k}')">表示</button>
-      <button onclick="deleteFavorite('${k}')">削除</button>`;
+      <button onclick="confirmDeleteFavorite('${k}')">削除</button>`;
     box.appendChild(div);
   }
 }
@@ -318,7 +191,7 @@ contactBtn.onclick=()=>{
   location.href="mailto:oceanloversy@gmail.com?subject=UCHI問い合わせ";
 };
 
-loadJSON();
+renderFavorites();
 </script>
 </body>
 </html>
