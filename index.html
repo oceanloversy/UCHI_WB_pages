@@ -149,7 +149,7 @@ footer {
   <h3> お気に入りページ </h3>
   <div id="favoritePageList"></div>
   <div class="favorite-note">
-    静止画/動画・エリア・項目を選択後、最下部の設計名を記入して、お気に入り登録ボタンを押すと、ここにその内容が登録されます
+    静止画/動画・エリア・項目を選択後、最下部の設計名を記入して、お気に入り登録ボタンを押すと、ここに登録されます
   </div>
 </div>
 
@@ -223,7 +223,7 @@ footer {
 </div>
 
 <footer>
-<p>当予測結果を使用することによって発生した一切の損害について、何等責任を負いません。</p>
+<p>当予測結果は九州大学総合理工学研究院によるものです。使用することによって発生した一切の損害について、何等責任を負いません。</p>
 <a id="contactBtn" href="#">開発者へのお問い合わせはこちら</a>
 </footer>
 
@@ -376,7 +376,7 @@ contactBtn.onclick = () => {
   const subject = encodeURIComponent("UCHI_AWBに関する問い合わせ");
   const body = encodeURIComponent(
     "問い合わせ内容：\n\n" +
-    "本ページに関する要望等：\n"
+    "本ページに対する要望等：\n"
   );
   window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
 };
