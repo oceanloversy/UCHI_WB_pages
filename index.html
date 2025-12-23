@@ -32,18 +32,37 @@ header {
   border-radius: 10px;
 }
 
+/* ===== お気に入りページ ===== */
+#favoritePage {
+  max-width: 900px;
+  margin: 0 auto 1.5rem auto;
+  background: #fffbe6;
+  border: 2px solid #f0c000;
+  border-radius: 10px;
+  padding: 1rem;
+}
+#favoritePage h2 {
+  margin: 0.5rem 0 1rem 0;
+  font-size: 1.3rem;
+}
+.favorite-item {
+  margin: 0.4rem 0;
+}
+.favorite-item button {
+  margin-left: 0.5rem;
+}
+
+/* ===== 共通 ===== */
 .container {
   margin: 1.5rem auto;
   width: 95%;
   max-width: 900px;
 }
-
 select, button, input {
   margin: 0.4rem;
   padding: 0.4rem;
   font-size: 1rem;
 }
-
 img, video {
   width: 100%;
   max-height: 80vh;
@@ -51,14 +70,12 @@ img, video {
   border-radius: 10px;
   background: white;
 }
-
 .btn-group {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-top: 0.8rem;
 }
-
 #mode-buttons button {
   background-color: #007bff;
   color: white;
@@ -69,28 +86,6 @@ img, video {
 }
 #mode-buttons button.active {
   background-color: #0056b3;
-}
-
-/* ===== お気に入り ===== */
-.favorite-box {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 0.8rem;
-  margin-top: 1rem;
-  background: #ffffff;
-}
-.favorite-box h3 {
-  margin: 0.3rem 0;
-  font-size: 1.1rem;
-}
-.favorite-list {
-  margin-top: 0.5rem;
-}
-.favorite-item {
-  margin: 0.3rem 0;
-}
-.favorite-item button {
-  margin-left: 0.5rem;
 }
 
 /* ===== フッター ===== */
@@ -119,6 +114,12 @@ footer {
   <img src="images/WholeArea.png">
 </div>
 
+<!-- ★★★★★ お気に入りページ ★★★★★ -->
+<div id="favoritePage">
+  <h2>⭐ お気に入りページ ⭐</h2>
+  <div id="favoritePageList"></div>
+</div>
+
 <div class="container">
 
 <!-- ===== モード切替 ===== -->
@@ -129,7 +130,6 @@ footer {
 
 <!-- ================= 静止画 ================= -->
 <div id="imageMode">
-
   <label>エリア：</label>
   <select id="zoomArea"></select><br>
 
@@ -153,18 +153,14 @@ footer {
 
   <img id="displayImage">
 
-  <!-- ★お気に入り -->
-  <div class="favorite-box">
-    <h3>⭐ お気に入り（静止画）</h3>
+  <div>
     <input id="favNameImage" placeholder="設計名">
-    <button onclick="saveFavorite('image')">登録</button>
-    <div id="favoriteImageList" class="favorite-list"></div>
+    <button onclick="saveFavorite('image')">お気に入り登録</button>
   </div>
 </div>
 
 <!-- ================= 動画 ================= -->
 <div id="videoMode" style="display:none;">
-
   <label>エリア：</label>
   <select id="zoomAreaVideo"></select><br>
 
@@ -180,12 +176,9 @@ footer {
 
   <video id="displayVideo" controls></video>
 
-  <!-- ★お気に入り -->
-  <div class="favorite-box">
-    <h3>⭐ お気に入り（動画）</h3>
+  <div>
     <input id="favNameVideo" placeholder="設計名">
-    <button onclick="saveFavorite('video')">登録</button>
-    <div id="favoriteVideoList" class="favorite-list"></div>
+    <button onclick="saveFavorite('video')">お気に入り登録</button>
   </div>
 </div>
 
@@ -227,8 +220,11 @@ function populateTime(){
 prevBtn.onclick=()=>shift(-1);
 nextBtn.onclick=()=>shift(1);
 function shift(d){
-  imageTime.selectedIndex+=d;
-  displayImage.src=imageTime.value;
+  const i=imageTime.selectedIndex+d;
+  if(i>=0 && i<imageTime.options.length){
+    imageTime.selectedIndex=i;
+    displayImage.src=imageTime.value;
+  }
 }
 imageVar.onchange=populateTime;
 zoomArea.onchange=populateTime;
@@ -262,34 +258,42 @@ function saveFav(o){ localStorage.setItem(FAV_KEY,JSON.stringify(o)); }
 
 function saveFavorite(mode){
   const name = mode==="image"?favNameImage.value:favNameVideo.value;
-  if(!name) return alert("設計名を入力");
+  if(!name) return alert("設計名を入力してください");
   const fav=getFav();
   fav[name]={
     mode:mode,
     area: mode==="image"?zoomArea.value:zoomAreaVideo.value,
     var: mode==="image"?imageVar.value:videoVar.value
   };
-  saveFav(fav); renderFavorites();
+  saveFav(fav);
+  renderFavorites();
 }
 
 function applyFavorite(name){
   const f=getFav()[name];
   if(f.mode==="image"){
     imageModeBtn.click();
-    zoomArea.value=f.area; imageVar.value=f.var; populateTime();
+    zoomArea.value=f.area;
+    imageVar.value=f.var;
+    populateTime();   // 日時は PREV/NEXT に完全追従
   }else{
     videoModeBtn.click();
-    zoomAreaVideo.value=f.area; videoVar.value=f.var; updateVideo();
+    zoomAreaVideo.value=f.area;
+    videoVar.value=f.var;
+    updateVideo();
   }
 }
 
 function deleteFavorite(name){
-  const f=getFav(); delete f[name]; saveFav(f); renderFavorites();
+  const f=getFav();
+  delete f[name];
+  saveFav(f);
+  renderFavorites();
 }
 
 function renderFavorites(){
-  favoriteImageList.innerHTML="";
-  favoriteVideoList.innerHTML="";
+  const box=document.getElementById("favoritePageList");
+  box.innerHTML="";
   const f=getFav();
   for(const k in f){
     const div=document.createElement("div");
@@ -297,7 +301,7 @@ function renderFavorites(){
     div.innerHTML=`${k}
       <button onclick="applyFavorite('${k}')">表示</button>
       <button onclick="deleteFavorite('${k}')">削除</button>`;
-    (f[k].mode==="image"?favoriteImageList:favoriteVideoList).appendChild(div);
+    box.appendChild(div);
   }
 }
 
