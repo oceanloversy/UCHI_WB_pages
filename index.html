@@ -141,7 +141,7 @@ footer {
   <h3> ⭐ お気に入りページ ⭐ </h3>
   <div id="favoritePageList"></div>
   <div class="favorite-note">
-    静止画/動画・エリア・項目を選択後、最下部の設計名を記入して、お気に入り登録ボタンを押してください
+    静止画/動画・エリア・項目を選択後、最下部の設計名を記入して、お気に入り登録ボタンを押すと、ここにその内容が登録されます
   </div>
 </div>
 
@@ -353,9 +353,17 @@ function renderFavorites(){
   }
 }
 
-/* ===== 問い合わせ ===== */
-contactBtn.onclick=()=>{
-  location.href="mailto:oceanloversy@gmail.com?subject=UCHI_AWBに関する問い合わせ";
+/* ===== 問い合わせ（メーラー起動） ===== */
+contactBtn.onclick = () => {
+  const to = "oceanloversy@gmail.com";
+  const subject = encodeURIComponent("UCHI_AWBに関する問い合わせ");
+
+  const body = encodeURIComponent(
+    "問い合わせ内容：\n\n" +
+    "本ページに関する要望等：\n"
+  );
+
+  window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
 };
 
 loadJSON();
