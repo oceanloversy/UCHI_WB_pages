@@ -89,13 +89,41 @@ img, video {
   background-color: #0056b3;
 }
 
-/* ===== 速度注記（追加） ===== */
+/* ===== 速度注記 ===== */
 .velocity-note {
   margin-top: 0.4rem;
   font-size: 0.9rem;
   color: #c00000;
   font-weight: bold;
   display: none;
+}
+
+/* ===== 位置表示 ===== */
+.position-toggle {
+  margin: 0.8rem 0;
+}
+.overlay-wrapper {
+  position: relative;
+}
+.position-marker {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: yellow;
+  border: 3px solid black;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+.direction-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 20px solid black;
+  transform-origin: 50% 100%;
+  z-index: 11;
 }
 
 /* ===== フッター ===== */
@@ -113,27 +141,6 @@ footer {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   text-decoration: none;
-}
-
-/* ===== 削除確認モーダル ===== */
-#deleteModal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-#deleteModalContent {
-  background: white;
-  padding: 1.2rem;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 360px;
-}
-#deleteModalContent p {
-  margin-bottom: 1rem;
 }
 </style>
 </head>
@@ -154,6 +161,13 @@ footer {
 </div>
 
 <div class="container">
+
+<div class="position-toggle">
+  <label>
+    <input type="checkbox" id="togglePosition">
+    現在地・向きを表示
+  </label>
+</div>
 
 <div id="mode-buttons">
   <button id="imageModeBtn" class="active">静止画</button>
@@ -183,14 +197,14 @@ footer {
     <button id="nextBtn">NEXT</button>
   </div>
 
-  <img id="displayImage">
-  <div id="imageVelocityNote" class="velocity-note">
-    赤矢印は流速0.5m/s以上
+  <div class="overlay-wrapper">
+    <img id="displayImage">
+    <div id="imageMarker" class="position-marker" style="display:none;"></div>
+    <div id="imageArrow" class="direction-arrow" style="display:none;"></div>
   </div>
 
-  <div>
-    <input id="favNameImage" placeholder="設計名">
-    <button onclick="saveFavorite('image')">お気に入り登録</button>
+  <div id="imageVelocityNote" class="velocity-note">
+    赤矢印は流速0.5m/s以上
   </div>
 </div>
 
@@ -209,179 +223,87 @@ footer {
     <option value="BS">30m-Salinity</option>
   </select>
 
-  <video id="displayVideo" controls></video>
-  <div id="videoVelocityNote" class="velocity-note">
-    赤矢印は流速0.5m/s以上
+  <div class="overlay-wrapper">
+    <video id="displayVideo" controls></video>
+    <div id="videoMarker" class="position-marker" style="display:none;"></div>
+    <div id="videoArrow" class="direction-arrow" style="display:none;"></div>
   </div>
 
-  <div>
-    <input id="favNameVideo" placeholder="設計名">
-    <button onclick="saveFavorite('video')">お気に入り登録</button>
+  <div id="videoVelocityNote" class="velocity-note">
+    赤矢印は流速0.5m/s以上
   </div>
 </div>
 
 </div>
 
 <footer>
-<p>当予測結果は九州大学総合理工学研究院によるものです。使用することによって発生した一切の損害について、何等責任を負いません。</p>
+<p>当予測結果は九州大学総合理工学研究院によるものです。</p>
 <a id="contactBtn" href="#">開発者へのお問い合わせはこちら</a>
 </footer>
 
-<div id="deleteModal">
-  <div id="deleteModalContent">
-    <p>このお気に入りを削除してもよろしいですか？</p>
-    <button onclick="confirmDelete()">削除</button>
-    <button onclick="closeDeleteModal()">キャンセル</button>
-  </div>
-</div>
-
 <script>
-let imageData = {}, videoData = {};
-const FAV_KEY = "uchi_favorites";
-let deleteTargetName = null;
-
-async function loadJSON(){
-  imageData = await (await fetch("image_list.json",{cache:"no-store"})).json();
-  videoData = await (await fetch("video_list.json",{cache:"no-store"})).json();
-  initUI();
-}
-
-function initUI(){
-  zoomArea.innerHTML = zoomAreaVideo.innerHTML =
-    Object.keys(imageData).map(a=>`<option>${a}</option>`).join("");
-  populateTime();
-  renderFavorites();
-}
-
-function toggleVelocityNote(mode, varName){
-  const show = (varName === "SVel" || varName === "BVel");
-  if(mode === "image"){
-    imageVelocityNote.style.display = show ? "block" : "none";
-  }else{
-    videoVelocityNote.style.display = show ? "block" : "none";
+/* ===== 各エリアの地理範囲設定 ===== */
+const AREA_GEO = {
+  "WholeArea": {
+    nw: { lat: 36.5, lon: 134.344906 },
+    se: { lat: 35.306869, lon: 136.511917 }
   }
-}
+  "Area1": {
+    nw: { lat: 36.087634, lon: 134.542967 },
+    se: { lat: 35.506927, lon: 135.198202 }
+  }
+  "Area2": {
+    nw: { lat: 36.035958, lon: 134.894557 },
+    se: { lat: 35.32, lon: 135.559380 }
+  }
+  "Area3": {
+    nw: { lat: 36.245939, lon: 135.057566 },
+    se: { lat: 35.33, lon: 136.125013 }
+  }
+};
 
-function populateTime(){
-  const a=zoomArea.value,v=imageVar.value;
-  imageTime.innerHTML="";
-  imageData[a][v].forEach(e=>{
-    imageTime.innerHTML+=`<option value="${e.path}">${e.datetime}</option>`;
+let currentLat = null;
+let currentLon = null;
+let currentHeading = 0;
+
+togglePosition.onchange = () => {
+  const show = togglePosition.checked;
+  imageMarker.style.display = imageArrow.style.display = show ? "block" : "none";
+  videoMarker.style.display = videoArrow.style.display = show ? "block" : "none";
+};
+
+navigator.geolocation.watchPosition(pos => {
+  currentLat = pos.coords.latitude;
+  currentLon = pos.coords.longitude;
+  updateMarkerPosition();
+});
+
+window.addEventListener("deviceorientation", e => {
+  if (e.alpha != null) {
+    currentHeading = e.alpha;
+    updateMarkerPosition();
+  }
+});
+
+function updateMarkerPosition(){
+  if(currentLat == null) return;
+  const area = zoomArea.value;
+  const geo = AREA_GEO[area];
+  if(!geo) return;
+
+  const x = (currentLon - geo.nw.lon) / (geo.se.lon - geo.nw.lon) * 100;
+  const y = (geo.nw.lat - currentLat) / (geo.nw.lat - geo.se.lat) * 100;
+
+  [imageMarker, videoMarker].forEach(m=>{
+    m.style.left = x + "%";
+    m.style.top = y + "%";
   });
-  displayImage.src=imageTime.value;
-  toggleVelocityNote("image", v);
+  [imageArrow, videoArrow].forEach(a=>{
+    a.style.left = x + "%";
+    a.style.top = y + "%";
+    a.style.transform = `translate(-50%,-100%) rotate(${currentHeading}deg)`;
+  });
 }
-
-prevBtn.onclick=()=>shift(-1);
-nextBtn.onclick=()=>shift(1);
-
-function shift(d){
-  const i=imageTime.selectedIndex+d;
-  if(i>=0 && i<imageTime.options.length){
-    imageTime.selectedIndex=i;
-    displayImage.src=imageTime.value;
-  }
-}
-
-imageVar.onchange=populateTime;
-zoomArea.onchange=populateTime;
-imageTime.onchange=()=>displayImage.src=imageTime.value;
-
-function updateVideo(){
-  const a=zoomAreaVideo.value,v=videoVar.value;
-  displayVideo.src=videoData[a][v][0].path;
-  toggleVelocityNote("video", v);
-}
-videoVar.onchange=updateVideo;
-zoomAreaVideo.onchange=updateVideo;
-
-imageModeBtn.onclick=()=>{
-  imageMode.style.display="block";
-  videoMode.style.display="none";
-  imageModeBtn.classList.add("active");
-  videoModeBtn.classList.remove("active");
-};
-videoModeBtn.onclick=()=>{
-  imageMode.style.display="none";
-  videoMode.style.display="block";
-  videoModeBtn.classList.add("active");
-  imageModeBtn.classList.remove("active");
-};
-
-function getFav(){ return JSON.parse(localStorage.getItem(FAV_KEY)||"{}"); }
-function saveFav(o){ localStorage.setItem(FAV_KEY,JSON.stringify(o)); }
-
-function saveFavorite(mode){
-  const name = mode==="image"?favNameImage.value:favNameVideo.value;
-  if(!name) return alert("設計名を入力してください");
-  const fav=getFav();
-  fav[name]={
-    mode:mode,
-    area: mode==="image"?zoomArea.value:zoomAreaVideo.value,
-    var: mode==="image"?imageVar.value:videoVar.value
-  };
-  saveFav(fav);
-  renderFavorites();
-}
-
-function applyFavorite(name){
-  const f=getFav()[name];
-  if(f.mode==="image"){
-    imageModeBtn.click();
-    zoomArea.value=f.area;
-    imageVar.value=f.var;
-    populateTime();
-  }else{
-    videoModeBtn.click();
-    zoomAreaVideo.value=f.area;
-    videoVar.value=f.var;
-    updateVideo();
-  }
-}
-
-function requestDelete(name){
-  deleteTargetName = name;
-  deleteModal.style.display="flex";
-}
-function closeDeleteModal(){
-  deleteTargetName = null;
-  deleteModal.style.display="none";
-}
-function confirmDelete(){
-  if(deleteTargetName){
-    const f=getFav();
-    delete f[deleteTargetName];
-    saveFav(f);
-    renderFavorites();
-  }
-  closeDeleteModal();
-}
-
-function renderFavorites(){
-  const box=document.getElementById("favoritePageList");
-  box.innerHTML="";
-  const f=getFav();
-  for(const k in f){
-    const div=document.createElement("div");
-    div.className="favorite-item";
-    div.innerHTML=`${k}
-      <button onclick="applyFavorite('${k}')">表示</button>
-      <button onclick="requestDelete('${k}')">削除</button>`;
-    box.appendChild(div);
-  }
-}
-
-contactBtn.onclick = () => {
-  const to = "oceanloversy@gmail.com";
-  const subject = encodeURIComponent("UCHI_AWBに関する問い合わせ");
-  const body = encodeURIComponent(
-    "問い合わせ内容：\n\n" +
-    "本ページに対する要望等：\n"
-  );
-  window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-};
-
-loadJSON();
 </script>
 </body>
 </html>
