@@ -98,32 +98,14 @@ img, video {
   display: none;
 }
 
-/* ===== 位置表示 ===== */
-.position-toggle {
-  margin: 0.8rem 0;
-}
-.overlay-wrapper {
+/* ===== 位置表示用 ===== */
+.map-wrapper {
   position: relative;
 }
-.position-marker {
+.overlay-canvas {
   position: absolute;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: yellow;
-  border: 3px solid black;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-}
-.direction-arrow {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 20px solid black;
-  transform-origin: 50% 100%;
-  z-index: 11;
+  inset: 0;
+  pointer-events: none;
 }
 
 /* ===== フッター ===== */
@@ -142,6 +124,27 @@ footer {
   border-radius: 6px;
   text-decoration: none;
 }
+
+/* ===== 削除確認モーダル ===== */
+#deleteModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+#deleteModalContent {
+  background: white;
+  padding: 1.2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 360px;
+}
+#deleteModalContent p {
+  margin-bottom: 1rem;
+}
 </style>
 </head>
 
@@ -156,16 +159,16 @@ footer {
   <h3> お気に入りページ </h3>
   <div id="favoritePageList"></div>
   <div class="favorite-note">
-    静止画/動画・エリア・項目を選択後、最下部の設計名を記入して、お気に入り登録ボタンを押すと、ここに登録されます(複数登録可)
+    静止画/動画・エリア・項目を選択後、最下部の設計名を記入して、お気に入り登録
   </div>
 </div>
 
 <div class="container">
 
-<div class="position-toggle">
+<div>
   <label>
-    <input type="checkbox" id="togglePosition">
-    現在地・向きを表示
+    <input type="checkbox" id="locationToggle">
+    現在地・方位を表示
   </label>
 </div>
 
@@ -197,10 +200,9 @@ footer {
     <button id="nextBtn">NEXT</button>
   </div>
 
-  <div class="overlay-wrapper">
+  <div class="map-wrapper">
     <img id="displayImage">
-    <div id="imageMarker" class="position-marker" style="display:none;"></div>
-    <div id="imageArrow" class="direction-arrow" style="display:none;"></div>
+    <canvas id="imageCanvas" class="overlay-canvas"></canvas>
   </div>
 
   <div id="imageVelocityNote" class="velocity-note">
@@ -223,10 +225,9 @@ footer {
     <option value="BS">30m-Salinity</option>
   </select>
 
-  <div class="overlay-wrapper">
+  <div class="map-wrapper">
     <video id="displayVideo" controls></video>
-    <div id="videoMarker" class="position-marker" style="display:none;"></div>
-    <div id="videoArrow" class="direction-arrow" style="display:none;"></div>
+    <canvas id="videoCanvas" class="overlay-canvas"></canvas>
   </div>
 
   <div id="videoVelocityNote" class="velocity-note">
@@ -242,68 +243,69 @@ footer {
 </footer>
 
 <script>
-/* ===== 各エリアの地理範囲設定 ===== */
-const AREA_GEO = {
-  "WholeArea": {
-    nw: { lat: 36.5, lon: 134.344906 },
-    se: { lat: 35.306869, lon: 136.511917 }
-  }
-  "Area1": {
-    nw: { lat: 36.087634, lon: 134.542967 },
-    se: { lat: 35.506927, lon: 135.198202 }
-  }
-  "Area2": {
-    nw: { lat: 36.035958, lon: 134.894557 },
-    se: { lat: 35.32, lon: 135.559380 }
-  }
-  "Area3": {
-    nw: { lat: 36.245939, lon: 135.057566 },
-    se: { lat: 35.33, lon: 136.125013 }
-  }
+/* ===== エリアごとの緯度経度範囲（編集可） ===== */
+const AREA_BOUNDS = {
+  "WholeArea": {latMin:35.306869, latMax:36.5, lonMin:134.344906, lonMax:136.511917}
+  "Area1": {latMin:35.506927, latMax:36.087634, lonMin:134.542967, lonMax:135.198202}
+  "Area2": {latMin:35.32, latMax:36.035958, lonMin:134.894557, lonMax:135.559380}
+  "Area3": {latMin:35.33, latMax:36.245939, lonMin:135.057566, lonMax:136.125013}
 };
+  
+/* ===== 表示設定 ===== */
+const MARKER_RADIUS = 8;
+const DIRECTION_LENGTH = 30;
 
 let currentLat = null;
 let currentLon = null;
 let currentHeading = 0;
 
-togglePosition.onchange = () => {
-  const show = togglePosition.checked;
-  imageMarker.style.display = imageArrow.style.display = show ? "block" : "none";
-  videoMarker.style.display = videoArrow.style.display = show ? "block" : "none";
-};
+/* ===== 位置取得 ===== */
+navigator.geolocation?.watchPosition(p=>{
+  currentLat = p.coords.latitude;
+  currentLon = p.coords.longitude;
+},{}, {enableHighAccuracy:true});
 
-navigator.geolocation.watchPosition(pos => {
-  currentLat = pos.coords.latitude;
-  currentLon = pos.coords.longitude;
-  updateMarkerPosition();
+/* ===== 方位取得 ===== */
+window.addEventListener("deviceorientation", e=>{
+  if(e.alpha !== null) currentHeading = e.alpha;
 });
 
-window.addEventListener("deviceorientation", e => {
-  if (e.alpha != null) {
-    currentHeading = e.alpha;
-    updateMarkerPosition();
-  }
-});
+/* ===== 描画 ===== */
+function drawOverlay(canvas, area){
+  const ctx = canvas.getContext("2d");
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
 
-function updateMarkerPosition(){
-  if(currentLat == null) return;
-  const area = zoomArea.value;
-  const geo = AREA_GEO[area];
-  if(!geo) return;
+  if(!locationToggle.checked || currentLat===null) return;
 
-  const x = (currentLon - geo.nw.lon) / (geo.se.lon - geo.nw.lon) * 100;
-  const y = (geo.nw.lat - currentLat) / (geo.nw.lat - geo.se.lat) * 100;
+  const b = AREA_BOUNDS[area];
+  if(!b) return;
 
-  [imageMarker, videoMarker].forEach(m=>{
-    m.style.left = x + "%";
-    m.style.top = y + "%";
-  });
-  [imageArrow, videoArrow].forEach(a=>{
-    a.style.left = x + "%";
-    a.style.top = y + "%";
-    a.style.transform = `translate(-50%,-100%) rotate(${currentHeading}deg)`;
-  });
+  const x = (currentLon - b.lonMin)/(b.lonMax-b.lonMin)*canvas.width;
+  const y = (b.latMax - currentLat)/(b.latMax-b.latMin)*canvas.height;
+
+  ctx.beginPath();
+  ctx.arc(x,y,MARKER_RADIUS,0,Math.PI*2);
+  ctx.fillStyle="yellow";
+  ctx.fill();
+  ctx.strokeStyle="black";
+  ctx.stroke();
+
+  const rad = currentHeading*Math.PI/180;
+  ctx.beginPath();
+  ctx.moveTo(x,y);
+  ctx.lineTo(x+Math.sin(rad)*DIRECTION_LENGTH, y-Math.cos(rad)*DIRECTION_LENGTH);
+  ctx.strokeStyle="black";
+  ctx.lineWidth=2;
+  ctx.stroke();
 }
+
+/* ===== ループ ===== */
+setInterval(()=>{
+  drawOverlay(imageCanvas, zoomArea.value);
+  drawOverlay(videoCanvas, zoomAreaVideo.value);
+},500);
 </script>
 </body>
 </html>
