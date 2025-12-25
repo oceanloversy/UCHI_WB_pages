@@ -32,6 +32,27 @@ header {
   border-radius: 10px;
 }
 
+/* ===== お気に入りページ ===== */
+#favoritePage {
+  max-width: 900px;
+  margin: 0 auto 1.5rem auto;
+  background: #fffbe6;
+  border: 2px solid #f0c000;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.favorite-item {
+  margin: 0.4rem 0;
+}
+.favorite-item button {
+  margin-left: 0.5rem;
+}
+.favorite-note {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+
 /* ===== 共通 ===== */
 .container {
   margin: 1.5rem auto;
@@ -50,34 +71,117 @@ img, video {
   border-radius: 10px;
   background: white;
 }
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+#mode-buttons button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+#mode-buttons button.active {
+  background-color: #0056b3;
+}
 
-/* ===== 位置マーカー（追加・安全構造） ===== */
+/* ===== 速度注記 ===== */
+.velocity-note {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: #c00000;
+  font-weight: bold;
+  display: none;
+}
+
+/* ===== 現在地マーカー ===== */
+:root {
+  --marker-size: 16px;
+  --arrow-length: 28px;
+}
+.image-wrapper {
+  position: relative;
+}
 #positionOverlay {
   position: absolute;
+  inset: 0;
   pointer-events: none;
 }
 #positionMarker {
-  width: 16px;
-  height: 16px;
+  position: absolute;
+  width: var(--marker-size);
+  height: var(--marker-size);
   background: yellow;
   border: 2px solid black;
   border-radius: 50%;
-  position: absolute;
   transform: translate(-50%, -50%);
 }
 #directionArrow {
-  width: 2px;
-  height: 28px;
-  background: black;
   position: absolute;
+  width: 2px;
+  height: var(--arrow-length);
+  background: black;
   transform-origin: bottom center;
+}
+
+/* ===== フッター ===== */
+footer {
+  margin-top: 2rem;
+  background-color: #e9ecef;
+  color: #555;
+  font-size: 0.9rem;
+  padding: 0.8rem;
+  border-top: 1px solid #ccc;
+}
+#contactBtn {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* ===== 削除確認モーダル ===== */
+#deleteModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+#deleteModalContent {
+  background: white;
+  padding: 1.2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 360px;
+}
+#deleteModalContent p {
+  margin-bottom: 1rem;
 }
 </style>
 </head>
 
 <body>
+<header>PREDICTION of <br>&nbsp;SEA CONDITION by UCHI<br>&nbsp;&nbsp;AROUND WAKASA BAY</header>
 
-<header>PREDICTION of <br>SEA CONDITION by UCHI<br>AROUND WAKASA BAY</header>
+<div id="wholeArea">
+  <img src="images/WholeArea.png">
+</div>
+
+<div id="favoritePage">
+  <h3> お気に入りページ </h3>
+  <div id="favoritePageList"></div>
+  <div class="favorite-note">
+    静止画/動画・エリア・項目を選択後、最下部の設計名を記入して、お気に入り登録ボタンを押すと、ここに登録されます(複数登録可)
+  </div>
+</div>
 
 <div class="container">
 
@@ -86,39 +190,96 @@ img, video {
   <button id="videoModeBtn">動画</button>
 </div>
 
-<!-- ===== 静止画 ===== -->
+<!-- ================= 静止画 ================= -->
 <div id="imageMode">
-  <select id="zoomArea"></select>
-  <select id="imageVar"></select>
+  <label>エリア：</label>
+  <select id="zoomArea"></select><br>
+
+  <label>項目：</label>
+  <select id="imageVar">
+    <option value="SVel">10m-Current</option>
+    <option value="BVel">30m-Current</option>
+    <option value="SST">10m-Temperature</option>
+    <option value="BT">30m-Temperature</option>
+    <option value="SSS">10m-Salinity</option>
+    <option value="BS">30m-Salinity</option>
+  </select><br>
+
+  <label>日時：</label>
   <select id="imageTime"></select>
 
-  <img id="displayImage">
-
-  <!-- ★ displayImage の直後に配置（ラップしない） -->
-  <div id="positionOverlay">
-    <div id="positionMarker"></div>
-    <div id="directionArrow"></div>
+  <div class="btn-group">
+    <button id="prevBtn">PREV</button>
+    <button id="nextBtn">NEXT</button>
   </div>
 
-  <input id="favNameImage" placeholder="設計名">
-  <button onclick="saveFavorite('image')">お気に入り登録</button>
+  <div class="image-wrapper">
+    <img id="displayImage">
+    <div id="positionOverlay">
+      <div id="positionMarker"></div>
+      <div id="directionArrow"></div>
+    </div>
+  </div>
+
+  <div id="imageVelocityNote" class="velocity-note">
+    赤矢印は流速0.5m/s以上
+  </div>
+
+  <div>
+    <input id="favNameImage" placeholder="設計名">
+    <button onclick="saveFavorite('image')">お気に入り登録</button>
+  </div>
 </div>
 
-<!-- ===== 動画 ===== -->
+<!-- ================= 動画 ================= -->
 <div id="videoMode" style="display:none;">
-  <select id="zoomAreaVideo"></select>
-  <select id="videoVar"></select>
+  <label>エリア：</label>
+  <select id="zoomAreaVideo"></select><br>
+
+  <label>項目：</label>
+  <select id="videoVar">
+    <option value="SVel">10m-Current</option>
+    <option value="BVel">30m-Current</option>
+    <option value="SST">10m-Temperature</option>
+    <option value="BT">30m-Temperature</option>
+    <option value="SSS">10m-Salinity</option>
+    <option value="BS">30m-Salinity</option>
+  </select>
+
   <video id="displayVideo" controls></video>
+
+  <div id="videoVelocityNote" class="velocity-note">
+    赤矢印は流速0.5m/s以上
+  </div>
+
+  <div>
+    <input id="favNameVideo" placeholder="設計名">
+    <button onclick="saveFavorite('video')">お気に入り登録</button>
+  </div>
 </div>
 
+</div>
+
+<footer>
+<p>当予測結果は九州大学総合理工学研究院によるものです。使用することによって発生した一切の損害について、何等責任を負いません。</p>
+<a id="contactBtn" href="#">開発者へのお問い合わせはこちら</a>
+</footer>
+
+<div id="deleteModal">
+  <div id="deleteModalContent">
+    <p>このお気に入りを削除してもよろしいですか？</p>
+    <button onclick="confirmDelete()">削除</button>
+    <button onclick="closeDeleteModal()">キャンセル</button>
+  </div>
 </div>
 
 <script>
-/* ===== 元コード（省略せず維持） ===== */
+/* ================== データ ================== */
 let imageData = {}, videoData = {};
 const FAV_KEY = "uchi_favorites";
+let deleteTargetName = null;
 
-/* ===== 位置対応用緯度経度 ===== */
+/* ===== 静止画の緯度経度範囲（手動調整可） ===== */
 const IMAGE_LATLON = {
   lat_top: 35.80,
   lon_left: 135.20,
@@ -126,21 +287,27 @@ const IMAGE_LATLON = {
   lon_right: 135.80
 };
 
-/* ===== JSON ===== */
+/* ================== 初期化 ================== */
 async function loadJSON(){
   imageData = await (await fetch("image_list.json",{cache:"no-store"})).json();
   videoData = await (await fetch("video_list.json",{cache:"no-store"})).json();
   initUI();
 }
 
-/* ===== UI ===== */
 function initUI(){
   zoomArea.innerHTML = zoomAreaVideo.innerHTML =
     Object.keys(imageData).map(a=>`<option>${a}</option>`).join("");
   populateTime();
+  renderFavorites();
 }
 
-/* ===== 静止画 ===== */
+/* ================== 静止画 ================== */
+function toggleVelocityNote(mode, v){
+  const show = (v==="SVel"||v==="BVel");
+  if(mode==="image") imageVelocityNote.style.display = show?"block":"none";
+  else videoVelocityNote.style.display = show?"block":"none";
+}
+
 function populateTime(){
   const a=zoomArea.value,v=imageVar.value;
   imageTime.innerHTML="";
@@ -148,40 +315,136 @@ function populateTime(){
     imageTime.innerHTML+=`<option value="${e.path}">${e.datetime}</option>`;
   });
   displayImage.src=imageTime.value;
+  toggleVelocityNote("image",v);
 }
 
+prevBtn.onclick=()=>shift(-1);
+nextBtn.onclick=()=>shift(1);
+
+function shift(d){
+  const i=imageTime.selectedIndex+d;
+  if(i>=0 && i<imageTime.options.length){
+    imageTime.selectedIndex=i;
+    displayImage.src=imageTime.value;
+  }
+}
+
+imageVar.onchange=populateTime;
+zoomArea.onchange=populateTime;
 imageTime.onchange=()=>displayImage.src=imageTime.value;
 
-/* ===== 位置マーカー処理（安全版） ===== */
-displayImage.onload = ()=>{
-  if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(pos=>{
-      const rect = displayImage.getBoundingClientRect();
-      const x = (pos.coords.longitude - IMAGE_LATLON.lon_left) /
-        (IMAGE_LATLON.lon_right - IMAGE_LATLON.lon_left) * rect.width;
-      const y = (IMAGE_LATLON.lat_top - pos.coords.latitude) /
-        (IMAGE_LATLON.lat_top - IMAGE_LATLON.lat_bottom) * rect.height;
+/* ================== 動画 ================== */
+function updateVideo(){
+  const a=zoomAreaVideo.value,v=videoVar.value;
+  displayVideo.src=videoData[a][v][0].path;
+  toggleVelocityNote("video",v);
+}
+videoVar.onchange=updateVideo;
+zoomAreaVideo.onchange=updateVideo;
 
-      positionOverlay.style.left = rect.left + "px";
-      positionOverlay.style.top = rect.top + "px";
-
-      positionMarker.style.left = x + "px";
-      positionMarker.style.top = y + "px";
-      directionArrow.style.left = x + "px";
-      directionArrow.style.top = y + "px";
-    });
-  }
+/* ================== モード ================== */
+imageModeBtn.onclick=()=>{
+  imageMode.style.display="block";
+  videoMode.style.display="none";
+  imageModeBtn.classList.add("active");
+  videoModeBtn.classList.remove("active");
+};
+videoModeBtn.onclick=()=>{
+  imageMode.style.display="none";
+  videoMode.style.display="block";
+  videoModeBtn.classList.add("active");
+  imageModeBtn.classList.remove("active");
 };
 
-window.addEventListener("deviceorientation", e=>{
-  if(e.alpha != null){
-    directionArrow.style.transform =
-      `rotate(${e.alpha}deg) translateY(-100%)`;
+/* ================== お気に入り ================== */
+function getFav(){return JSON.parse(localStorage.getItem(FAV_KEY)||"{}");}
+function saveFav(o){localStorage.setItem(FAV_KEY,JSON.stringify(o));}
+
+function saveFavorite(mode){
+  const name = mode==="image"?favNameImage.value:favNameVideo.value;
+  if(!name) return alert("設計名を入力してください");
+  const f=getFav();
+  f[name]={mode,area:mode==="image"?zoomArea.value:zoomAreaVideo.value,
+           var:mode==="image"?imageVar.value:videoVar.value};
+  saveFav(f);
+  renderFavorites();
+}
+
+function applyFavorite(name){
+  const f=getFav()[name];
+  if(f.mode==="image"){
+    imageModeBtn.click();
+    zoomArea.value=f.area;
+    imageVar.value=f.var;
+    populateTime();
+  }else{
+    videoModeBtn.click();
+    zoomAreaVideo.value=f.area;
+    videoVar.value=f.var;
+    updateVideo();
+  }
+}
+
+function requestDelete(name){
+  deleteTargetName=name;
+  deleteModal.style.display="flex";
+}
+function closeDeleteModal(){
+  deleteTargetName=null;
+  deleteModal.style.display="none";
+}
+function confirmDelete(){
+  if(deleteTargetName){
+    const f=getFav();
+    delete f[deleteTargetName];
+    saveFav(f);
+    renderFavorites();
+  }
+  closeDeleteModal();
+}
+
+function renderFavorites(){
+  const box=favoritePageList;
+  box.innerHTML="";
+  const f=getFav();
+  for(const k in f){
+    const d=document.createElement("div");
+    d.className="favorite-item";
+    d.innerHTML=`${k}
+      <button onclick="applyFavorite('${k}')">表示</button>
+      <button onclick="requestDelete('${k}')">削除</button>`;
+    box.appendChild(d);
+  }
+}
+
+/* ================== 現在地・方位 ================== */
+function updateMarker(lat, lon){
+  const r=displayImage.getBoundingClientRect();
+  const x=(lon-IMAGE_LATLON.lon_left)/(IMAGE_LATLON.lon_right-IMAGE_LATLON.lon_left)*r.width;
+  const y=(IMAGE_LATLON.lat_top-lat)/(IMAGE_LATLON.lat_top-IMAGE_LATLON.lat_bottom)*r.height;
+  positionMarker.style.left=x+"px";
+  positionMarker.style.top=y+"px";
+  directionArrow.style.left=x+"px";
+  directionArrow.style.top=y+"px";
+}
+
+navigator.geolocation.watchPosition(p=>{
+  updateMarker(p.coords.latitude,p.coords.longitude);
+});
+
+window.addEventListener("deviceorientation",e=>{
+  if(e.alpha!=null){
+    directionArrow.style.transform=`rotate(${e.alpha}deg) translateY(-100%)`;
   }
 });
 
+/* ================== 問い合わせ ================== */
+contactBtn.onclick=()=>{
+  const body=encodeURIComponent("問い合わせ内容：\n\n本ページに対する要望等：\n");
+  location.href=`mailto:oceanloversy@gmail.com?subject=UCHI_AWBに関する問い合わせ&body=${body}`;
+};
+
 loadJSON();
 </script>
-
 </body>
 </html>
