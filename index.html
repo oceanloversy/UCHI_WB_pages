@@ -454,9 +454,27 @@ toggleCheckbox.onchange = () => {
   positionMarker.style.display = disp;
   directionArrow.style.display = disp;
 };
-
+  
+/* ===== 範囲判定 ===== */
+function isInside(lat, lon){
+  return (
+    lat <= IMAGE_LATLON.lat_top &&
+    lat >= IMAGE_LATLON.lat_bottom &&
+    lon >= IMAGE_LATLON.lon_left &&
+    lon <= IMAGE_LATLON.lon_right
+  );
+}
+  
 /* ================== 現在地・方位 ================== */
 function updateMarker(lat, lon){
+  const inside = isInside(lat, lon);
+
+  if(!inside){
+    positionMarker.style.display = "none";
+    directionArrow.style.display = "none";
+    return;
+  }
+
   const r=displayImage.getBoundingClientRect();
   const x=(lon-IMAGE_LATLON.lon_left)/(IMAGE_LATLON.lon_right-IMAGE_LATLON.lon_left)*r.width;
   const y=(IMAGE_LATLON.lat_top-lat)/(IMAGE_LATLON.lat_top-IMAGE_LATLON.lat_bottom)*r.height;
