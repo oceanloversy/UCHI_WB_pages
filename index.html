@@ -309,14 +309,30 @@ let imageData = {}, videoData = {};
 const FAV_KEY = "uchi_favorites";
 let deleteTargetName = null;
 
-/* ===== 静止画の緯度経度範囲（手動調整可） ===== */
-const IMAGE_LATLON = {
-  lat_top: 33.636935,
-  lon_left: 130.322385,
-  lat_bottom: 33.397070,
-  lon_right: 130.655408
+/* ===== 静止画のエリア別緯度経度範囲（手動調整可） ===== */
+const AREA_LATLON = {
+  "Area1": { lat_top:33.636935, lat_bottom:33.397070, lon_left:130.322385, lon_right:130.655408 },
+  "Area2": { lat_top:33.800000, lat_bottom:33.550000, lon_left:130.100000, lon_right:130.400000 },
+  "Area3": { lat_top:33.800000, lat_bottom:33.550000, lon_left:130.100000, lon_right:130.400000 },
+  "WholeArea": { lat_top:33.800000, lat_bottom:33.550000, lon_left:130.100000, lon_right:130.400000 }
+  // 必要に応じて追加
 };
 
+/* ===== 現在のエリア範囲取得 ===== */
+function getCurrentLatLonRange(){
+  const area = zoomArea ? zoomArea.value : null;
+  return AREA_LATLON[area] || Object.values(AREA_LATLON)[0];
+}
+/* ===== 範囲判定 ===== */
+function isInside(lat, lon){
+  const r = getCurrentLatLonRange();
+  return (
+    lat <= r.lat_top &&
+    lat >= r.lat_bottom &&
+    lon >= r.lon_left &&
+    lon <= r.lon_right
+  );
+}
 /* ================== 初期化 ================== */
 async function loadJSON(){
   imageData = await (await fetch("image_list.json",{cache:"no-store"})).json();
@@ -467,17 +483,18 @@ function isInside(lat, lon){
   
 /* ================== 現在地・方位 ================== */
 function updateMarker(lat, lon){
-  const inside = isInside(lat, lon);
+  const r = getCurrentLatLonRange();
 
+  const inside = isInside(lat, lon);
   if(!inside){
     positionMarker.style.display = "none";
     directionArrow.style.display = "none";
     return;
   }
 
-  const r=displayImage.getBoundingClientRect();
-  const x=(lon-IMAGE_LATLON.lon_left)/(IMAGE_LATLON.lon_right-IMAGE_LATLON.lon_left)*r.width;
-  const y=(IMAGE_LATLON.lat_top-lat)/(IMAGE_LATLON.lat_top-IMAGE_LATLON.lat_bottom)*r.height;
+  const rect = displayImage.getBoundingClientRect();
+  const x = (lon - r.lon_left) / (r.lon_right - r.lon_left) * rect.width;
+  const y = (r.lat_top - lat) / (r.lat_top - r.lat_bottom) * rect.height;
   positionMarker.style.left=x+"px";
   positionMarker.style.top=y+"px";
   directionArrow.style.left=x+"px";
