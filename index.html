@@ -105,12 +105,17 @@ img, video {
 }
 .image-wrapper {
   position: relative;
+  width: 100%;
+}
+#displayImage {
+  display: block;
 }
 #positionOverlay {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
+  top: 0;
+  left: 0;
 }
+  
 #positionMarker {
   position: absolute;
   width: var(--marker-size);
@@ -476,16 +481,7 @@ toggleCheckbox.onchange = () => {
   directionArrow.style.display = disp;
 };
   
-/* ===== 範囲判定 ===== */
-function isInside(lat, lon){
-  return (
-    lat <= IMAGE_LATLON.lat_top &&
-    lat >= IMAGE_LATLON.lat_bottom &&
-    lon >= IMAGE_LATLON.lon_left &&
-    lon <= IMAGE_LATLON.lon_right
-  );
-}
-  
+ 
 /* ================== 現在地・方位 ================== */
 function updateMarker(lat, lon){
   if(!imageLoaded) return;
@@ -499,6 +495,9 @@ function updateMarker(lat, lon){
   }
 
   const rect = displayImage.getBoundingClientRect();
+  positionOverlay.style.width = rect.width + "px";
+  positionOverlay.style.height = rect.height + "px";
+
   if(rect.width === 0 || rect.height === 0) return;
 
   const x = (lon - r.lon_left) / (r.lon_right - r.lon_left) * rect.width;
