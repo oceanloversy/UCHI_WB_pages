@@ -365,13 +365,13 @@ function toggleVelocityNote(mode, v){
 }
 
 function populateTime(){
-  const a=zoomArea.value,v=imageVar.value;
-  imageTime.innerHTML="";
+  imageLoaded = false;   // ← 重要
+  const a = zoomArea.value, v = imageVar.value;
+  imageTime.innerHTML = "";
   imageData[a][v].forEach(e=>{
-    imageTime.innerHTML+=`<option value="${e.path}">${e.datetime}</option>`;
+    imageTime.innerHTML += `<option value="${e.path}">${e.datetime}</option>`;
   });
-  displayImage.src=imageTime.value;
-  toggleVelocityNote("image",v);
+  displayImage.src = imageTime.value;
 }
 
 prevBtn.onclick=()=>shift(-1);
@@ -485,29 +485,32 @@ toggleCheckbox.onchange = () => {
 /* ================== 現在地・方位 ================== */
 function updateMarker(lat, lon){
   if(!imageLoaded) return;
-  const r = getCurrentLatLonRange();
 
-  const inside = isInside(lat, lon);
-  if(!inside){
-    positionMarker.style.display = "none";
-    directionArrow.style.display = "none";
-    return;
-  }
+  requestAnimationFrame(() => {
+    const r = getCurrentLatLonRange();
+    const rect = displayImage.getBoundingClientRect();
 
-  const rect = displayImage.getBoundingClientRect();
-  positionOverlay.style.width = rect.width + "px";
-  positionOverlay.style.height = rect.height + "px";
+    if(rect.width === 0 || rect.height === 0) return;
 
-  if(rect.width === 0 || rect.height === 0) return;
+    positionOverlay.style.width  = rect.width + "px";
+    positionOverlay.style.height = rect.height + "px";
 
-  const x = (lon - r.lon_left) / (r.lon_right - r.lon_left) * rect.width;
-  const y = (r.lat_top - lat) / (r.lat_top - r.lat_bottom) * rect.height;
-  positionMarker.style.display = "block";
-  directionArrow.style.display = "block";
-  positionMarker.style.left=x+"px";
-  positionMarker.style.top=y+"px";
-  directionArrow.style.left=x+"px";
-  directionArrow.style.top=y+"px";
+    if(!isInside(lat, lon)){
+      positionMarker.style.display = "none";
+      directionArrow.style.display = "none";
+      return;
+    }
+
+    const x = (lon - r.lon_left) / (r.lon_right - r.lon_left) * rect.width;
+    const y = (r.lat_top - lat) / (r.lat_top - r.lat_bottom) * rect.height;
+
+    positionMarker.style.display = "block";
+    directionArrow.style.display = "block";
+    positionMarker.style.left = x + "px";
+    positionMarker.style.top  = y + "px";
+    directionArrow.style.left = x + "px";
+    directionArrow.style.top  = y + "px";
+  });
 }
 
 /* ===== 画像ロード後に再計算 ===== */
@@ -526,9 +529,9 @@ navigator.geolocation.watchPosition(p=>{
 });
 
   /* ================== 方位 ================== */
-window.addEventListener("deviceorientation",e=>{
-  if(e.alpha != null){
-    directionArrow.style.transform=`rotate(${e.alpha}deg) translateY(-100%)`;
+window.addEventListener("resize", () => {
+  if(lastLat !== null && lastLon !== null){
+    updateMarker(lastLat, lastLon);
   }
 });
 
