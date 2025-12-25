@@ -386,7 +386,13 @@ function shift(d){
 }
 
 imageVar.onchange=populateTime;
-zoomArea.onchange=populateTime;
+zoomArea.onchange = () => {
+  populateTime();
+  if(lastLat !== null && lastLon !== null){
+    // 画像ロード後に再評価される
+    imageLoaded = false;
+  }
+};
 imageTime.onchange=()=>displayImage.src=imageTime.value;
 
 /* ================== 動画 ================== */
@@ -496,8 +502,8 @@ function updateMarker(lat, lon){
     positionOverlay.style.height = rect.height + "px";
 
     if(!isInside(lat, lon)){
-      positionMarker.style.display = "none";
-      directionArrow.style.display = "none";
+      positionMarker.style.display = "block";
+      directionArrow.style.display = "block";
       return;
     }
 
@@ -516,10 +522,17 @@ function updateMarker(lat, lon){
 /* ===== 画像ロード後に再計算 ===== */
 displayImage.onload = () => {
   imageLoaded = true;
+
   if(lastLat !== null && lastLon !== null){
-    updateMarker(lastLat, lastLon);
+    // ★ 1フレームではなく 2フレーム待つ
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        updateMarker(lastLat, lastLon);
+      });
+    });
   }
 };
+
 
 /* ================== GPS ================== */
 navigator.geolocation.watchPosition(p=>{
