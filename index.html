@@ -304,6 +304,11 @@ footer {
 </div>
 
 <script>
+/* ================== 追加変数（最小） ================== */
+let lastLat = null;
+let lastLon = null;
+let imageLoaded = false;
+
 /* ================== データ ================== */
 let imageData = {}, videoData = {};
 const FAV_KEY = "uchi_favorites";
@@ -483,6 +488,7 @@ function isInside(lat, lon){
   
 /* ================== 現在地・方位 ================== */
 function updateMarker(lat, lon){
+  if(!imageLoaded) return;
   const r = getCurrentLatLonRange();
 
   const inside = isInside(lat, lon);
@@ -493,24 +499,43 @@ function updateMarker(lat, lon){
   }
 
   const rect = displayImage.getBoundingClientRect();
+  if(rect.width === 0 || rect.height === 0) return;
+
   const x = (lon - r.lon_left) / (r.lon_right - r.lon_left) * rect.width;
   const y = (r.lat_top - lat) / (r.lat_top - r.lat_bottom) * rect.height;
+  positionMarker.style.display = "block";
+  directionArrow.style.display = "block";
   positionMarker.style.left=x+"px";
   positionMarker.style.top=y+"px";
   directionArrow.style.left=x+"px";
   directionArrow.style.top=y+"px";
 }
 
+/* ===== 画像ロード後に再計算 ===== */
+displayImage.onload = () => {
+  imageLoaded = true;
+  if(lastLat !== null && lastLon !== null){
+    updateMarker(lastLat, lastLon);
+  }
+};
+
+/* ================== GPS ================== */
 navigator.geolocation.watchPosition(p=>{
-  updateMarker(p.coords.latitude,p.coords.longitude);
+  lastLat = p.coords.latitude;
+  lastLon = p.coords.longitude;
+  updateMarker(lastLat, lastLon);
 });
 
+  /* ================== 方位 ================== */
 window.addEventListener("deviceorientation",e=>{
   if(e.alpha != null){
     directionArrow.style.transform=`rotate(${e.alpha}deg) translateY(-100%)`;
   }
 });
 
+/* ===== 初期画像 ===== */
+displayImage.src = "images/sample.png";
+  
 /* ================== 問い合わせ ================== */
 contactBtn.onclick=()=>{
   const body=encodeURIComponent("問い合わせ内容：\n\n本ページに対する要望等：\n");
