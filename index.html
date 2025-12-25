@@ -309,6 +309,8 @@ footer {
 </div>
 
 <script>
+let currentHeading = 0; // 方位角（deg）
+
 /* ================== 追加変数（最小） ================== */
 let lastLat = null;
 let lastLon = null;
@@ -519,6 +521,40 @@ function updateMarker(lat, lon){
   });
 }
 
+function initOrientation() {
+  // iOS 対応
+  if (
+    typeof DeviceOrientationEvent !== "undefined" &&
+    typeof DeviceOrientationEvent.requestPermission === "function"
+  ) {
+    // ユーザー操作が必要
+    document.body.addEventListener("click", () => {
+      DeviceOrientationEvent.requestPermission()
+        .then(state => {
+          if (state === "granted") {
+            window.addEventListener("deviceorientation", handleOrientation);
+          }
+        })
+        .catch(console.error);
+    }, { once: true });
+
+  } else {
+    // Android / PC
+    window.addEventListener("deviceorientation", handleOrientation);
+  }
+}
+
+function handleOrientation(e) {
+  if (e.alpha === null) return;
+
+  // alpha: 北=0, 時計回り
+  currentHeading = e.alpha;
+
+  // 矢印を回転（北向きを上に）
+  directionArrow.style.transform =
+    `rotate(${currentHeading}deg)`;
+}
+  
 /* ===== 画像ロード後に再計算 ===== */
 displayImage.onload = () => {
   imageLoaded = true;
@@ -558,6 +594,7 @@ contactBtn.onclick=()=>{
 };
 
 loadJSON();
+initOrientation();
 </script>
 </body>
 </html>
