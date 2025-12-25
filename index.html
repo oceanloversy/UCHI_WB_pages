@@ -468,7 +468,7 @@ navigator.geolocation.watchPosition(p=>{
 });
 
 window.addEventListener("deviceorientation",e=>{
-  if(e.alpha!=null){
+  if(e.alpha!=null && arrowToggle.checked){
     directionArrow.style.transform=`rotate(${e.alpha}deg) translateY(-100%)`;
   }
 });
