@@ -373,12 +373,17 @@ function initUI(){
 
   populateTime();
 
-  // ★ 初期カラーバー設定（重要）
+  // ★ 初期カラーバー設定
   updateColorbar("image", imageVar.value);
   updateColorbar("video", videoVar.value);
 
+  // ★ 初期速度注記制御
+  toggleVelocityNote("image", imageVar.value);
+  toggleVelocityNote("video", videoVar.value);
+
   renderFavorites();
 }
+
 
 
 /* ================== 静止画 ================== */
@@ -456,7 +461,11 @@ function updateColorbar(mode, v){
 imageVar.onchange = () => {
   populateTime();
   updateColorbar("image", imageVar.value);
+
+  // ★ 静止画の速度注記制御
+  toggleVelocityNote("image", imageVar.value);
 };
+
 videoVar.onchange = () => {
   updateVideo();
   updateColorbar("video", videoVar.value);
