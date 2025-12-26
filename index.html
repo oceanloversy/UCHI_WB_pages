@@ -71,6 +71,15 @@ img, video {
   border-radius: 10px;
   background: white;
 }
+
+  /* === ADD: カラーバー専用 === */
+.colorbar {
+  width: 100%;
+  max-width: 900px;
+  margin: 0.4rem auto 0.2rem auto;
+  border: none;
+  background: transparent;
+}
 .btn-group {
   display: flex;
   justify-content: center;
@@ -152,7 +161,7 @@ img, video {
   top: calc(-1 * (var(--marker-size) / 2 + var(--arrow-length) + 6px));
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-bottom: 8px solid black;
+  border-bottom: 6px solid black;
 }
 
 /* ===== フッター ===== */
@@ -256,6 +265,9 @@ footer {
     </div>
   </div>
 
+  <!-- === ADD: 静止画カラーバー === -->
+  <img id="imageColorbar" class="colorbar" src="">
+  
   <div id="imageVelocityNote" class="velocity-note">
     赤矢印は流速0.5m/s以上
   </div>
@@ -282,6 +294,9 @@ footer {
   </select>
 
   <video id="displayVideo" controls></video>
+
+  <!-- === ADD: 動画カラーバー === -->
+  <img id="videoColorbar" class="colorbar" src="">
 
   <div id="videoVelocityNote" class="velocity-note">
     赤矢印は流速0.5m/s以上
@@ -418,6 +433,22 @@ videoModeBtn.onclick=()=>{
   videoMode.style.display="block";
   videoModeBtn.classList.add("active");
   imageModeBtn.classList.remove("active");
+};
+
+/* === ADD: カラーバー切替関数（既存処理に影響なし） === */
+function updateColorbar(mode, v){
+  const img = (mode === "image") ? imageColorbar : videoColorbar;
+  img.src = `images/colorbar/${v}.png`;
+}
+
+/* 既存 onchange に追記 */
+imageVar.onchange = () => {
+  populateTime();
+  updateColorbar("image", imageVar.value);
+};
+videoVar.onchange = () => {
+  updateVideo();
+  updateColorbar("video", videoVar.value);
 };
 
 /* ================== お気に入り ================== */
