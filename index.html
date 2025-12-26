@@ -598,13 +598,13 @@ function initOrientation() {
 function handleOrientation(e) {
   if (e.alpha === null) return;
 
-  // alpha: 北=0, 時計回り
+  // alpha は時計回りなので符号反転
   currentHeading = e.alpha;
 
-  // 矢印を回転（北向きを上に）
   directionArrow.style.transform =
-    `rotate(${currentHeading}deg)`;
+    `rotate(${-currentHeading}deg)`;
 }
+
   
 /* ===== 画像ロード後に再計算 ===== */
 displayImage.onload = () => {
