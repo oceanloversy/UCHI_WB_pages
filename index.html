@@ -400,7 +400,28 @@ function populateTime(){
   imageData[a][v].forEach(e=>{
     imageTime.innerHTML += `<option value="${e.path}">${e.datetime}</option>`;
   });
+  // ★ ADD: アクセス時刻に最も近い分布を初期選択
+  selectNearestTime(a, v);
+  
   displayImage.src = imageTime.value;
+}
+
+/* ★ ADD: 現在時刻に最も近い時刻を選択 */
+function selectNearestTime(area, variable){
+  const now = new Date();
+  let minDiff = Infinity;
+  let bestIndex = 0;
+
+  imageData[area][variable].forEach((e, i) => {
+    const t = new Date(e.datetime.replace(" ", "T"));
+    const diff = Math.abs(now - t);
+    if(diff < minDiff){
+      minDiff = diff;
+      bestIndex = i;
+    }
+  });
+
+  imageTime.selectedIndex = bestIndex;
 }
 
 prevBtn.onclick=()=>shift(-1);
