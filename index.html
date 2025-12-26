@@ -370,9 +370,16 @@ async function loadJSON(){
 function initUI(){
   zoomArea.innerHTML = zoomAreaVideo.innerHTML =
     Object.keys(imageData).map(a=>`<option>${a}</option>`).join("");
+
   populateTime();
+
+  // ★ 初期カラーバー設定（重要）
+  updateColorbar("image", imageVar.value);
+  updateColorbar("video", videoVar.value);
+
   renderFavorites();
 }
+
 
 /* ================== 静止画 ================== */
 function toggleVelocityNote(mode, v){
@@ -417,7 +424,11 @@ function updateVideo(){
   const a=zoomAreaVideo.value,v=videoVar.value;
   displayVideo.src=videoData[a][v][0].path;
   toggleVelocityNote("video",v);
+
+  // ★ 動画カラーバー更新
+  updateColorbar("video", v);
 }
+
 videoVar.onchange=updateVideo;
 zoomAreaVideo.onchange=updateVideo;
 
