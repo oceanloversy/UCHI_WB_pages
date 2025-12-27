@@ -371,6 +371,10 @@ function initUI(){
   zoomArea.innerHTML = zoomAreaVideo.innerHTML =
     Object.keys(imageData).map(a=>`<option>${a}</option>`).join("");
 
+/* ★★★ 追加：初期選択を明示的に確定 ★★★ */
+　zoomArea.selectedIndex = 0;
+　imageVar.selectedIndex = 0;
+  
   populateTime();
 
   // ★ 初期カラーバー設定
