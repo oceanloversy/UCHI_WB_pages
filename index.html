@@ -368,8 +368,13 @@ async function loadJSON(){
 }
 
 function initUI(){
-  zoomArea.innerHTML = zoomAreaVideo.innerHTML =
-    Object.keys(imageData).map(a=>`<option>${a}</option>`).join("");
+/*  zoomArea.innerHTML = zoomAreaVideo.innerHTML =
+  Object.keys(imageData).map(a=>`<option>${a}</option>`).join(""); */
+
+  const opts = Object.keys(imageData).map(a=>`<option>${a}</option>`).join("");
+
+  zoomArea.innerHTML = opts;
+  zoomAreaVideo.innerHTML = opts;
 
 /* ★★★ 追加：初期選択を明示的に確定 ★★★ */
 　zoomArea.selectedIndex = 0;
@@ -386,8 +391,8 @@ function initUI(){
   toggleVelocityNote("video", videoVar.value);
 
   renderFavorites();
+  displayImage.src = imageTime.value;  // ★ 明示的に再代入
 }
-
 
 
 /* ================== 静止画 ================== */
@@ -439,7 +444,7 @@ function shift(d){
   }
 }
 
-imageVar.onchange=populateTime;
+/* imageVar.onchange=populateTime; */
 zoomArea.onchange = () => {
   populateTime();
   if(lastLat !== null && lastLon !== null){
