@@ -355,6 +355,18 @@ const AREA_LATLON = {
   // 必要に応じて追加
 };
 
+console.log(
+  e.datetime,
+  parseJST(e.datetime),
+  now
+);
+
+function parseJST(datetimeStr){
+  // "YYYY-MM-DD HH:MM" を想定
+  const [date, time] = datetimeStr.trim().split(" ");
+  return new Date(`${date}T${time}:00+09:00`);
+}
+
 /* ===== 現在のエリア範囲取得 ===== */
 function getCurrentLatLonRange(){
   const area = zoomArea ? zoomArea.value : null;
@@ -435,7 +447,9 @@ function selectNearestToDeviceTime(area, variable){
   let idx = 0;
 
   imageData[area][variable].forEach((e,i)=>{
-    const t = new Date(e.datetime.replace(" ","T"));
+    const t = parseJST(e.datetime); // ★ 修正
+    if(isNaN(t)) return;
+
     const d = Math.abs(now - t);
     if(d < min){
       min = d;
@@ -445,6 +459,7 @@ function selectNearestToDeviceTime(area, variable){
 
   imageTime.selectedIndex = idx;
 }
+
 
 prevBtn.onclick=()=>shift(-1);
 nextBtn.onclick=()=>shift(1);
