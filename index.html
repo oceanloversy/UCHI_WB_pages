@@ -483,12 +483,13 @@ function shift(d){
 
 /* imageVar.onchange=populateTime; */
 zoomArea.onchange = () => {
+  resetAutoNow();     // ★ 追加
   populateTime();
   if(lastLat !== null && lastLon !== null){
-    // 画像ロード後に再評価される
     imageLoaded = false;
   }
 };
+
 imageVar.onchange = populateTime;
 imageTime.onchange = ()=> {
   displayImage.src = imageTime.value;
@@ -536,12 +537,12 @@ function updateColorbar(mode, v){
 
 /* 既存 onchange に追記 */
 imageVar.onchange = () => {
+  resetAutoNow();     // ★ 追加
   populateTime();
   updateColorbar("image", imageVar.value);
-
-  // ★ 静止画の速度注記制御
   toggleVelocityNote("image", imageVar.value);
 };
+
 
 videoVar.onchange = () => {
   updateVideo();
