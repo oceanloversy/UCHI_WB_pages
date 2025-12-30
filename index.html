@@ -261,7 +261,7 @@ footer {
   <div style="margin-top:0.4rem;">
     <label>
       <input type="checkbox" id="autoNowToggle">
-      現在時刻表示 ON
+      直近結果表示 ON
     </label>
   </div>
 
@@ -312,7 +312,7 @@ footer {
   </div>
 
   <div>
-    <input id="favNameVideo" placeholder="設計名">
+    <input id="favNameVideo" placeholder="登録名">
     <button onclick="saveFavorite('video')">お気に入り登録</button>
   </div>
 </div>
@@ -549,7 +549,7 @@ function saveFav(o){localStorage.setItem(FAV_KEY,JSON.stringify(o));}
 
 function saveFavorite(mode){
   const name = mode==="image"?favNameImage.value:favNameVideo.value;
-  if(!name) return alert("設計名を入力してください");
+  if(!name) return alert("登録名を入力してください");
   const f=getFav();
   f[name]={mode,area:mode==="image"?zoomArea.value:zoomAreaVideo.value,
            var:mode==="image"?imageVar.value:videoVar.value};
