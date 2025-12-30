@@ -406,13 +406,16 @@ function initUI(){
 }
 
 /* ================== JST を明示的に Date 化 ================== */
-function parseJST(datetimeStr){
-  // "YYYY-MM-DD HH:MM" → JST Date
-  const [d,t] = datetimeStr.split(" ");
-  const [y,m,da] = d.split("-").map(Number);
-  const [hh,mm] = t.split(":").map(Number);
-  return new Date(y, m-1, da, hh, mm, 0);
+function parseJSTDate(str){
+  // "2025/12/25 01:00" を想定
+  const [datePart, timePart] = str.split(" ");
+  const [y, m, d] = datePart.split("/").map(Number);
+  const [hh, mm] = timePart.split(":").map(Number);
+
+  // ローカルタイム（JST）として生成
+  return new Date(y, m - 1, d, hh, mm, 0);
 }
+
 
 /* ================== 静止画 ================== */
 function toggleVelocityNote(mode, v){
@@ -430,30 +433,37 @@ function populateTime(){
     imageTime.innerHTML += `<option value="${e.path}">${e.datetime}</option>`;
   });
   // ★ ADD: アクセス時刻に最も近い分布を初期選択
-  if(autoNow){
-    selectNearestToDeviceTime(a, v);
-  }
+  autoNowToggle.onchange = () => {
+    autoNow = autoNowToggle.checked;
+    if(autoNow){
+      selectNearestToDeviceTime(zoomArea.value, imageVar.value);
+    }
+  };
+
  
   displayImage.src = imageTime.value;
 }
 
 /* ★ ADD: 端末時刻（JST）に最も近いものを選択 */
 function selectNearestToDeviceTime(area, variable){
-  const now = new Date();
-  let min = Infinity;
-  let idx = 0;
+  const now = new Date();   // 端末の現在時刻（JST）
+  let minDiff = Infinity;
+  let nearestIndex = 0;
 
-  [...imageTime.options].forEach((opt,i)=>{
-    const t = parseJST(opt.text);
-    const d = Math.abs(now - t);
-    if(d < min){
-      min = d;
-      idx = i;
+  imageData[area][variable].forEach((e, i) => {
+    const t = parseJSTDate(e.datetime);
+    const diff = Math.abs(now.getTime() - t.getTime());
+
+    if (diff < minDiff) {
+      minDiff = diff;
+      nearestIndex = i;
     }
   });
 
-  imageTime.selectedIndex = idx;
+  imageTime.selectedIndex = nearestIndex;
+  displayImage.src = imageTime.value;
 }
+
 
 prevBtn.onclick=()=>shift(-1);
 nextBtn.onclick=()=>shift(1);
