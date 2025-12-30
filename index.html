@@ -414,7 +414,8 @@ function toggleVelocityNote(mode, v){
 
 function populateTime(){
   imageLoaded = false;   // ← 重要
-  const a = zoomArea.value, v = imageVar.value;
+  const a = zoomArea.value;
+  const v = imageVar.value;
   imageTime.innerHTML = "";
   imageData[a][v].forEach(e=>{
     imageTime.innerHTML += `<option value="${e.path}">${e.datetime}</option>`;
@@ -464,6 +465,7 @@ zoomArea.onchange = () => {
     imageLoaded = false;
   }
 };
+imageVar.onchange = populateTime;
 imageTime.onchange=()=>displayImage.src=imageTime.value;
 
 /* ★ ADD: 現在時刻ON/OFF */
