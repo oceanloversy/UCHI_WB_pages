@@ -265,6 +265,7 @@ footer {
     </label>
   </div>
 
+ 
   <div class="image-wrapper">
     <img id="displayImage">
     <div id="positionOverlay">
@@ -273,7 +274,7 @@ footer {
     </div>
   </div>
 
-  <!-- === ADD: 静止画カラーバー === -->
+　  <!-- === ADD: 静止画カラーバー === -->
   <img id="imageColorbar" class="colorbar" src="">
  
   <div id="imageVelocityNote" class="velocity-note">
@@ -404,6 +405,14 @@ function initUI(){
   displayImage.src = imageTime.value;  // ★ 明示的に再代入
 }
 
+/* ================== JST を明示的に Date 化 ================== */
+function parseJST(datetimeStr){
+  // "YYYY-MM-DD HH:MM" → JST Date
+  const [d,t] = datetimeStr.split(" ");
+  const [y,m,da] = d.split("-").map(Number);
+  const [hh,mm] = t.split(":").map(Number);
+  return new Date(y, m-1, da, hh, mm, 0);
+}
 
 /* ================== 静止画 ================== */
 function toggleVelocityNote(mode, v){
@@ -434,8 +443,8 @@ function selectNearestToDeviceTime(area, variable){
   let min = Infinity;
   let idx = 0;
 
-  imageData[area][variable].forEach((e,i)=>{
-    const t = new Date(e.datetime.replace(" ","T"));
+  [...imageTime.options].forEach((opt,i)=>{
+    const t = parseJST(opt.text);
     const d = Math.abs(now - t);
     if(d < min){
       min = d;
@@ -466,7 +475,9 @@ zoomArea.onchange = () => {
   }
 };
 imageVar.onchange = populateTime;
-imageTime.onchange=()=>displayImage.src=imageTime.value;
+imageTime.onchange = ()=> {
+  displayImage.src = imageTime.value;
+};
 
 /* ★ ADD: 現在時刻ON/OFF */
 autoNowToggle.onchange = ()=>{
