@@ -356,6 +356,11 @@ const AREA_LATLON = {
   // 必要に応じて追加
 };
 
+function resetAutoNow(){
+  autoNow = false;
+  autoNowToggle.checked = false;
+}
+
 /* ===== 現在のエリア範囲取得 ===== */
 function getCurrentLatLonRange(){
   const area = zoomArea ? zoomArea.value : null;
@@ -558,19 +563,24 @@ function saveFavorite(mode){
 }
 
 function applyFavorite(name){
-  const f=getFav()[name];
-  if(f.mode==="image"){
+  // ★ 追加：現在時刻表示を必ずOFFにする
+  resetAutoNow();
+
+  const f = getFav()[name];
+
+  if(f.mode === "image"){
     imageModeBtn.click();
-    zoomArea.value=f.area;
-    imageVar.value=f.var;
-    populateTime();
+    zoomArea.value = f.area;
+    imageVar.value = f.var;
+    populateTime();   // ← autoNow=falseなので通常選択
   }else{
     videoModeBtn.click();
-    zoomAreaVideo.value=f.area;
-    videoVar.value=f.var;
+    zoomAreaVideo.value = f.area;
+    videoVar.value = f.var;
     updateVideo();
   }
 }
+
 
 function requestDelete(name){
   deleteTargetName=name;
