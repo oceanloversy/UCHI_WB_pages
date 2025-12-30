@@ -124,7 +124,7 @@ img, video {
   top: 0;
   left: 0;
 }
-  
+ 
 #positionMarker {
   position: absolute;
   width: var(--marker-size);
@@ -261,7 +261,7 @@ footer {
   <div style="margin-top:0.4rem;">
     <label>
       <input type="checkbox" id="autoNowToggle">
-      現在時刻表示
+      現在時刻表示 ON
     </label>
   </div>
 
@@ -275,7 +275,7 @@ footer {
 
   <!-- === ADD: 静止画カラーバー === -->
   <img id="imageColorbar" class="colorbar" src="">
-  
+ 
   <div id="imageVelocityNote" class="velocity-note">
     赤矢印は流速0.5m/s以上
   </div>
@@ -355,18 +355,6 @@ const AREA_LATLON = {
   // 必要に応じて追加
 };
 
-console.log(
-  e.datetime,
-  parseJST(e.datetime),
-  now
-);
-
-function parseJST(datetimeStr){
-  // "YYYY-MM-DD HH:MM" を想定
-  const [date, time] = datetimeStr.trim().split(" ");
-  return new Date(`${date}T${time}:00+09:00`);
-}
-
 /* ===== 現在のエリア範囲取得 ===== */
 function getCurrentLatLonRange(){
   const area = zoomArea ? zoomArea.value : null;
@@ -401,7 +389,7 @@ function initUI(){
 /* ★★★ 追加：初期選択を明示的に確定 ★★★ */
 　zoomArea.selectedIndex = 0;
 　imageVar.selectedIndex = 0;
-  
+ 
   populateTime();
 
   // ★ 初期カラーバー設定
@@ -436,7 +424,7 @@ function populateTime(){
   if(autoNow){
     selectNearestToDeviceTime(a, v);
   }
-  
+ 
   displayImage.src = imageTime.value;
 }
 
@@ -447,9 +435,7 @@ function selectNearestToDeviceTime(area, variable){
   let idx = 0;
 
   imageData[area][variable].forEach((e,i)=>{
-    const t = parseJST(e.datetime); // ★ 修正
-    if(isNaN(t)) return;
-
+    const t = new Date(e.datetime.replace(" ","T"));
     const d = Math.abs(now - t);
     if(d < min){
       min = d;
@@ -459,7 +445,6 @@ function selectNearestToDeviceTime(area, variable){
 
   imageTime.selectedIndex = idx;
 }
-
 
 prevBtn.onclick=()=>shift(-1);
 nextBtn.onclick=()=>shift(1);
@@ -605,7 +590,7 @@ toggleCheckbox.onchange = () => {
   positionMarker.style.display = disp;
   directionArrow.style.display = disp;
 };
-  
+ 
  
 /* ================== 現在地・方位 ================== */
 function updateMarker(lat, lon){
@@ -671,7 +656,7 @@ function handleOrientation(e) {
     `rotate(${-currentHeading}deg)`;
 }
 
-  
+ 
 /* ===== 画像ロード後に再計算 ===== */
 displayImage.onload = () => {
   imageLoaded = true;
