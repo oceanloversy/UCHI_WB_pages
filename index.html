@@ -344,7 +344,8 @@ let imageLoaded = false;
 let imageData = {}, videoData = {};
 let autoNow = false; // ★ ADD
 
-const FAV_KEY = "uchi_favorites";
+const SITE_ID = "WB";   // ← 海域ごとに必ず変更
+const FAV_KEY = `uchi_favorites_${SITE_ID}`;
 let deleteTargetName = null;
 
 /* ===== 静止画のエリア別緯度経度範囲（手動調整可） ===== */
