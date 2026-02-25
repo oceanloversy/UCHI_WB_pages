@@ -2,102 +2,6 @@
   "Area1": {
     "SSS": [
       {
-        "path": "images/SAL/202602190100_SSS_Area1.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/SAL/202602190200_SSS_Area1.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/SAL/202602190300_SSS_Area1.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/SAL/202602190400_SSS_Area1.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/SAL/202602190500_SSS_Area1.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/SAL/202602190600_SSS_Area1.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/SAL/202602190700_SSS_Area1.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/SAL/202602190800_SSS_Area1.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/SAL/202602190900_SSS_Area1.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/SAL/202602191000_SSS_Area1.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/SAL/202602191100_SSS_Area1.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/SAL/202602191200_SSS_Area1.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/SAL/202602191300_SSS_Area1.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/SAL/202602191400_SSS_Area1.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/SAL/202602191500_SSS_Area1.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/SAL/202602191600_SSS_Area1.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/SAL/202602191700_SSS_Area1.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/SAL/202602191800_SSS_Area1.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/SAL/202602191900_SSS_Area1.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/SAL/202602192000_SSS_Area1.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/SAL/202602192100_SSS_Area1.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/SAL/202602192200_SSS_Area1.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/SAL/202602192300_SSS_Area1.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/SAL/202602200000_SSS_Area1.png",
-        "datetime": "2026/02/20 00:00"
-      },
-      {
         "path": "images/SAL/202602200100_SSS_Area1.png",
         "datetime": "2026/02/20 01:00"
       },
@@ -960,105 +864,49 @@
       {
         "path": "images/SAL/202603010000_SSS_Area1.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/SAL/202603010100_SSS_Area1.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/SAL/202603010200_SSS_Area1.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/SAL/202603010300_SSS_Area1.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/SAL/202603010400_SSS_Area1.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/SAL/202603010500_SSS_Area1.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/SAL/202603010600_SSS_Area1.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/SAL/202603010700_SSS_Area1.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/SAL/202603010800_SSS_Area1.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/SAL/202603010900_SSS_Area1.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/SAL/202603011000_SSS_Area1.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "BS": [
-      {
-        "path": "images/SAL/202602190100_BS_Area1.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/SAL/202602190200_BS_Area1.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/SAL/202602190300_BS_Area1.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/SAL/202602190400_BS_Area1.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/SAL/202602190500_BS_Area1.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/SAL/202602190600_BS_Area1.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/SAL/202602190700_BS_Area1.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/SAL/202602190800_BS_Area1.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/SAL/202602190900_BS_Area1.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/SAL/202602191000_BS_Area1.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/SAL/202602191100_BS_Area1.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/SAL/202602191200_BS_Area1.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/SAL/202602191300_BS_Area1.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/SAL/202602191400_BS_Area1.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/SAL/202602191500_BS_Area1.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/SAL/202602191600_BS_Area1.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/SAL/202602191700_BS_Area1.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/SAL/202602191800_BS_Area1.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/SAL/202602191900_BS_Area1.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/SAL/202602192000_BS_Area1.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/SAL/202602192100_BS_Area1.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/SAL/202602192200_BS_Area1.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/SAL/202602192300_BS_Area1.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/SAL/202602200000_BS_Area1.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/SAL/202602200100_BS_Area1.png",
         "datetime": "2026/02/20 01:00"
@@ -1922,105 +1770,49 @@
       {
         "path": "images/SAL/202603010000_BS_Area1.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/SAL/202603010100_BS_Area1.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/SAL/202603010200_BS_Area1.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/SAL/202603010300_BS_Area1.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/SAL/202603010400_BS_Area1.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/SAL/202603010500_BS_Area1.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/SAL/202603010600_BS_Area1.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/SAL/202603010700_BS_Area1.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/SAL/202603010800_BS_Area1.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/SAL/202603010900_BS_Area1.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/SAL/202603011000_BS_Area1.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "SST": [
-      {
-        "path": "images/TEM/202602190100_SST_Area1.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/TEM/202602190200_SST_Area1.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/TEM/202602190300_SST_Area1.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/TEM/202602190400_SST_Area1.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/TEM/202602190500_SST_Area1.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/TEM/202602190600_SST_Area1.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/TEM/202602190700_SST_Area1.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/TEM/202602190800_SST_Area1.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/TEM/202602190900_SST_Area1.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/TEM/202602191000_SST_Area1.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/TEM/202602191100_SST_Area1.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/TEM/202602191200_SST_Area1.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/TEM/202602191300_SST_Area1.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/TEM/202602191400_SST_Area1.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/TEM/202602191500_SST_Area1.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/TEM/202602191600_SST_Area1.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/TEM/202602191700_SST_Area1.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/TEM/202602191800_SST_Area1.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/TEM/202602191900_SST_Area1.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/TEM/202602192000_SST_Area1.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/TEM/202602192100_SST_Area1.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/TEM/202602192200_SST_Area1.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/TEM/202602192300_SST_Area1.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/TEM/202602200000_SST_Area1.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/TEM/202602200100_SST_Area1.png",
         "datetime": "2026/02/20 01:00"
@@ -2884,105 +2676,49 @@
       {
         "path": "images/TEM/202603010000_SST_Area1.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/TEM/202603010100_SST_Area1.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/TEM/202603010200_SST_Area1.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/TEM/202603010300_SST_Area1.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/TEM/202603010400_SST_Area1.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/TEM/202603010500_SST_Area1.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/TEM/202603010600_SST_Area1.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/TEM/202603010700_SST_Area1.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/TEM/202603010800_SST_Area1.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/TEM/202603010900_SST_Area1.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/TEM/202603011000_SST_Area1.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "BT": [
-      {
-        "path": "images/TEM/202602190100_BT_Area1.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/TEM/202602190200_BT_Area1.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/TEM/202602190300_BT_Area1.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/TEM/202602190400_BT_Area1.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/TEM/202602190500_BT_Area1.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/TEM/202602190600_BT_Area1.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/TEM/202602190700_BT_Area1.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/TEM/202602190800_BT_Area1.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/TEM/202602190900_BT_Area1.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/TEM/202602191000_BT_Area1.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/TEM/202602191100_BT_Area1.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/TEM/202602191200_BT_Area1.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/TEM/202602191300_BT_Area1.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/TEM/202602191400_BT_Area1.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/TEM/202602191500_BT_Area1.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/TEM/202602191600_BT_Area1.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/TEM/202602191700_BT_Area1.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/TEM/202602191800_BT_Area1.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/TEM/202602191900_BT_Area1.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/TEM/202602192000_BT_Area1.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/TEM/202602192100_BT_Area1.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/TEM/202602192200_BT_Area1.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/TEM/202602192300_BT_Area1.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/TEM/202602200000_BT_Area1.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/TEM/202602200100_BT_Area1.png",
         "datetime": "2026/02/20 01:00"
@@ -3846,105 +3582,49 @@
       {
         "path": "images/TEM/202603010000_BT_Area1.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/TEM/202603010100_BT_Area1.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/TEM/202603010200_BT_Area1.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/TEM/202603010300_BT_Area1.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/TEM/202603010400_BT_Area1.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/TEM/202603010500_BT_Area1.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/TEM/202603010600_BT_Area1.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/TEM/202603010700_BT_Area1.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/TEM/202603010800_BT_Area1.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/TEM/202603010900_BT_Area1.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/TEM/202603011000_BT_Area1.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "SVel": [
-      {
-        "path": "images/VEL/202602190100_SVel_Area1.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/VEL/202602190200_SVel_Area1.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/VEL/202602190300_SVel_Area1.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/VEL/202602190400_SVel_Area1.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/VEL/202602190500_SVel_Area1.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/VEL/202602190600_SVel_Area1.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/VEL/202602190700_SVel_Area1.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/VEL/202602190800_SVel_Area1.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/VEL/202602190900_SVel_Area1.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/VEL/202602191000_SVel_Area1.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/VEL/202602191100_SVel_Area1.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/VEL/202602191200_SVel_Area1.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/VEL/202602191300_SVel_Area1.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/VEL/202602191400_SVel_Area1.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/VEL/202602191500_SVel_Area1.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/VEL/202602191600_SVel_Area1.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/VEL/202602191700_SVel_Area1.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/VEL/202602191800_SVel_Area1.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/VEL/202602191900_SVel_Area1.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/VEL/202602192000_SVel_Area1.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/VEL/202602192100_SVel_Area1.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/VEL/202602192200_SVel_Area1.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/VEL/202602192300_SVel_Area1.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/VEL/202602200000_SVel_Area1.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/VEL/202602200100_SVel_Area1.png",
         "datetime": "2026/02/20 01:00"
@@ -4808,105 +4488,49 @@
       {
         "path": "images/VEL/202603010000_SVel_Area1.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/VEL/202603010100_SVel_Area1.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/VEL/202603010200_SVel_Area1.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/VEL/202603010300_SVel_Area1.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/VEL/202603010400_SVel_Area1.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/VEL/202603010500_SVel_Area1.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/VEL/202603010600_SVel_Area1.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/VEL/202603010700_SVel_Area1.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/VEL/202603010800_SVel_Area1.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/VEL/202603010900_SVel_Area1.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/VEL/202603011000_SVel_Area1.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "BVel": [
-      {
-        "path": "images/VEL/202602190100_BVel_Area1.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/VEL/202602190200_BVel_Area1.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/VEL/202602190300_BVel_Area1.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/VEL/202602190400_BVel_Area1.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/VEL/202602190500_BVel_Area1.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/VEL/202602190600_BVel_Area1.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/VEL/202602190700_BVel_Area1.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/VEL/202602190800_BVel_Area1.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/VEL/202602190900_BVel_Area1.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/VEL/202602191000_BVel_Area1.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/VEL/202602191100_BVel_Area1.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/VEL/202602191200_BVel_Area1.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/VEL/202602191300_BVel_Area1.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/VEL/202602191400_BVel_Area1.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/VEL/202602191500_BVel_Area1.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/VEL/202602191600_BVel_Area1.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/VEL/202602191700_BVel_Area1.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/VEL/202602191800_BVel_Area1.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/VEL/202602191900_BVel_Area1.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/VEL/202602192000_BVel_Area1.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/VEL/202602192100_BVel_Area1.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/VEL/202602192200_BVel_Area1.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/VEL/202602192300_BVel_Area1.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/VEL/202602200000_BVel_Area1.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/VEL/202602200100_BVel_Area1.png",
         "datetime": "2026/02/20 01:00"
@@ -5770,107 +5394,51 @@
       {
         "path": "images/VEL/202603010000_BVel_Area1.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/VEL/202603010100_BVel_Area1.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/VEL/202603010200_BVel_Area1.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/VEL/202603010300_BVel_Area1.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/VEL/202603010400_BVel_Area1.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/VEL/202603010500_BVel_Area1.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/VEL/202603010600_BVel_Area1.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/VEL/202603010700_BVel_Area1.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/VEL/202603010800_BVel_Area1.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/VEL/202603010900_BVel_Area1.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/VEL/202603011000_BVel_Area1.png",
+        "datetime": "2026/03/01 10:00"
       }
     ]
   },
   "Area2": {
     "SSS": [
-      {
-        "path": "images/SAL/202602190100_SSS_Area2.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/SAL/202602190200_SSS_Area2.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/SAL/202602190300_SSS_Area2.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/SAL/202602190400_SSS_Area2.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/SAL/202602190500_SSS_Area2.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/SAL/202602190600_SSS_Area2.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/SAL/202602190700_SSS_Area2.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/SAL/202602190800_SSS_Area2.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/SAL/202602190900_SSS_Area2.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/SAL/202602191000_SSS_Area2.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/SAL/202602191100_SSS_Area2.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/SAL/202602191200_SSS_Area2.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/SAL/202602191300_SSS_Area2.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/SAL/202602191400_SSS_Area2.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/SAL/202602191500_SSS_Area2.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/SAL/202602191600_SSS_Area2.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/SAL/202602191700_SSS_Area2.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/SAL/202602191800_SSS_Area2.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/SAL/202602191900_SSS_Area2.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/SAL/202602192000_SSS_Area2.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/SAL/202602192100_SSS_Area2.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/SAL/202602192200_SSS_Area2.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/SAL/202602192300_SSS_Area2.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/SAL/202602200000_SSS_Area2.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/SAL/202602200100_SSS_Area2.png",
         "datetime": "2026/02/20 01:00"
@@ -6734,105 +6302,49 @@
       {
         "path": "images/SAL/202603010000_SSS_Area2.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/SAL/202603010100_SSS_Area2.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/SAL/202603010200_SSS_Area2.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/SAL/202603010300_SSS_Area2.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/SAL/202603010400_SSS_Area2.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/SAL/202603010500_SSS_Area2.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/SAL/202603010600_SSS_Area2.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/SAL/202603010700_SSS_Area2.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/SAL/202603010800_SSS_Area2.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/SAL/202603010900_SSS_Area2.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/SAL/202603011000_SSS_Area2.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "BS": [
-      {
-        "path": "images/SAL/202602190100_BS_Area2.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/SAL/202602190200_BS_Area2.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/SAL/202602190300_BS_Area2.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/SAL/202602190400_BS_Area2.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/SAL/202602190500_BS_Area2.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/SAL/202602190600_BS_Area2.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/SAL/202602190700_BS_Area2.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/SAL/202602190800_BS_Area2.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/SAL/202602190900_BS_Area2.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/SAL/202602191000_BS_Area2.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/SAL/202602191100_BS_Area2.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/SAL/202602191200_BS_Area2.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/SAL/202602191300_BS_Area2.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/SAL/202602191400_BS_Area2.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/SAL/202602191500_BS_Area2.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/SAL/202602191600_BS_Area2.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/SAL/202602191700_BS_Area2.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/SAL/202602191800_BS_Area2.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/SAL/202602191900_BS_Area2.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/SAL/202602192000_BS_Area2.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/SAL/202602192100_BS_Area2.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/SAL/202602192200_BS_Area2.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/SAL/202602192300_BS_Area2.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/SAL/202602200000_BS_Area2.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/SAL/202602200100_BS_Area2.png",
         "datetime": "2026/02/20 01:00"
@@ -7696,105 +7208,49 @@
       {
         "path": "images/SAL/202603010000_BS_Area2.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/SAL/202603010100_BS_Area2.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/SAL/202603010200_BS_Area2.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/SAL/202603010300_BS_Area2.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/SAL/202603010400_BS_Area2.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/SAL/202603010500_BS_Area2.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/SAL/202603010600_BS_Area2.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/SAL/202603010700_BS_Area2.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/SAL/202603010800_BS_Area2.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/SAL/202603010900_BS_Area2.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/SAL/202603011000_BS_Area2.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "SST": [
-      {
-        "path": "images/TEM/202602190100_SST_Area2.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/TEM/202602190200_SST_Area2.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/TEM/202602190300_SST_Area2.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/TEM/202602190400_SST_Area2.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/TEM/202602190500_SST_Area2.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/TEM/202602190600_SST_Area2.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/TEM/202602190700_SST_Area2.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/TEM/202602190800_SST_Area2.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/TEM/202602190900_SST_Area2.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/TEM/202602191000_SST_Area2.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/TEM/202602191100_SST_Area2.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/TEM/202602191200_SST_Area2.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/TEM/202602191300_SST_Area2.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/TEM/202602191400_SST_Area2.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/TEM/202602191500_SST_Area2.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/TEM/202602191600_SST_Area2.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/TEM/202602191700_SST_Area2.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/TEM/202602191800_SST_Area2.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/TEM/202602191900_SST_Area2.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/TEM/202602192000_SST_Area2.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/TEM/202602192100_SST_Area2.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/TEM/202602192200_SST_Area2.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/TEM/202602192300_SST_Area2.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/TEM/202602200000_SST_Area2.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/TEM/202602200100_SST_Area2.png",
         "datetime": "2026/02/20 01:00"
@@ -8658,105 +8114,49 @@
       {
         "path": "images/TEM/202603010000_SST_Area2.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/TEM/202603010100_SST_Area2.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/TEM/202603010200_SST_Area2.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/TEM/202603010300_SST_Area2.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/TEM/202603010400_SST_Area2.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/TEM/202603010500_SST_Area2.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/TEM/202603010600_SST_Area2.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/TEM/202603010700_SST_Area2.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/TEM/202603010800_SST_Area2.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/TEM/202603010900_SST_Area2.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/TEM/202603011000_SST_Area2.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "BT": [
-      {
-        "path": "images/TEM/202602190100_BT_Area2.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/TEM/202602190200_BT_Area2.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/TEM/202602190300_BT_Area2.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/TEM/202602190400_BT_Area2.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/TEM/202602190500_BT_Area2.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/TEM/202602190600_BT_Area2.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/TEM/202602190700_BT_Area2.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/TEM/202602190800_BT_Area2.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/TEM/202602190900_BT_Area2.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/TEM/202602191000_BT_Area2.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/TEM/202602191100_BT_Area2.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/TEM/202602191200_BT_Area2.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/TEM/202602191300_BT_Area2.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/TEM/202602191400_BT_Area2.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/TEM/202602191500_BT_Area2.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/TEM/202602191600_BT_Area2.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/TEM/202602191700_BT_Area2.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/TEM/202602191800_BT_Area2.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/TEM/202602191900_BT_Area2.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/TEM/202602192000_BT_Area2.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/TEM/202602192100_BT_Area2.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/TEM/202602192200_BT_Area2.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/TEM/202602192300_BT_Area2.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/TEM/202602200000_BT_Area2.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/TEM/202602200100_BT_Area2.png",
         "datetime": "2026/02/20 01:00"
@@ -9620,105 +9020,49 @@
       {
         "path": "images/TEM/202603010000_BT_Area2.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/TEM/202603010100_BT_Area2.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/TEM/202603010200_BT_Area2.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/TEM/202603010300_BT_Area2.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/TEM/202603010400_BT_Area2.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/TEM/202603010500_BT_Area2.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/TEM/202603010600_BT_Area2.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/TEM/202603010700_BT_Area2.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/TEM/202603010800_BT_Area2.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/TEM/202603010900_BT_Area2.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/TEM/202603011000_BT_Area2.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "SVel": [
-      {
-        "path": "images/VEL/202602190100_SVel_Area2.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/VEL/202602190200_SVel_Area2.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/VEL/202602190300_SVel_Area2.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/VEL/202602190400_SVel_Area2.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/VEL/202602190500_SVel_Area2.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/VEL/202602190600_SVel_Area2.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/VEL/202602190700_SVel_Area2.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/VEL/202602190800_SVel_Area2.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/VEL/202602190900_SVel_Area2.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/VEL/202602191000_SVel_Area2.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/VEL/202602191100_SVel_Area2.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/VEL/202602191200_SVel_Area2.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/VEL/202602191300_SVel_Area2.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/VEL/202602191400_SVel_Area2.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/VEL/202602191500_SVel_Area2.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/VEL/202602191600_SVel_Area2.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/VEL/202602191700_SVel_Area2.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/VEL/202602191800_SVel_Area2.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/VEL/202602191900_SVel_Area2.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/VEL/202602192000_SVel_Area2.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/VEL/202602192100_SVel_Area2.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/VEL/202602192200_SVel_Area2.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/VEL/202602192300_SVel_Area2.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/VEL/202602200000_SVel_Area2.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/VEL/202602200100_SVel_Area2.png",
         "datetime": "2026/02/20 01:00"
@@ -10582,105 +9926,49 @@
       {
         "path": "images/VEL/202603010000_SVel_Area2.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/VEL/202603010100_SVel_Area2.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/VEL/202603010200_SVel_Area2.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/VEL/202603010300_SVel_Area2.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/VEL/202603010400_SVel_Area2.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/VEL/202603010500_SVel_Area2.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/VEL/202603010600_SVel_Area2.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/VEL/202603010700_SVel_Area2.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/VEL/202603010800_SVel_Area2.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/VEL/202603010900_SVel_Area2.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/VEL/202603011000_SVel_Area2.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "BVel": [
-      {
-        "path": "images/VEL/202602190100_BVel_Area2.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/VEL/202602190200_BVel_Area2.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/VEL/202602190300_BVel_Area2.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/VEL/202602190400_BVel_Area2.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/VEL/202602190500_BVel_Area2.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/VEL/202602190600_BVel_Area2.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/VEL/202602190700_BVel_Area2.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/VEL/202602190800_BVel_Area2.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/VEL/202602190900_BVel_Area2.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/VEL/202602191000_BVel_Area2.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/VEL/202602191100_BVel_Area2.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/VEL/202602191200_BVel_Area2.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/VEL/202602191300_BVel_Area2.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/VEL/202602191400_BVel_Area2.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/VEL/202602191500_BVel_Area2.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/VEL/202602191600_BVel_Area2.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/VEL/202602191700_BVel_Area2.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/VEL/202602191800_BVel_Area2.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/VEL/202602191900_BVel_Area2.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/VEL/202602192000_BVel_Area2.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/VEL/202602192100_BVel_Area2.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/VEL/202602192200_BVel_Area2.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/VEL/202602192300_BVel_Area2.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/VEL/202602200000_BVel_Area2.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/VEL/202602200100_BVel_Area2.png",
         "datetime": "2026/02/20 01:00"
@@ -11544,107 +10832,51 @@
       {
         "path": "images/VEL/202603010000_BVel_Area2.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/VEL/202603010100_BVel_Area2.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/VEL/202603010200_BVel_Area2.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/VEL/202603010300_BVel_Area2.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/VEL/202603010400_BVel_Area2.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/VEL/202603010500_BVel_Area2.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/VEL/202603010600_BVel_Area2.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/VEL/202603010700_BVel_Area2.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/VEL/202603010800_BVel_Area2.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/VEL/202603010900_BVel_Area2.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/VEL/202603011000_BVel_Area2.png",
+        "datetime": "2026/03/01 10:00"
       }
     ]
   },
   "Area3": {
     "SSS": [
-      {
-        "path": "images/SAL/202602190100_SSS_Area3.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/SAL/202602190200_SSS_Area3.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/SAL/202602190300_SSS_Area3.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/SAL/202602190400_SSS_Area3.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/SAL/202602190500_SSS_Area3.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/SAL/202602190600_SSS_Area3.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/SAL/202602190700_SSS_Area3.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/SAL/202602190800_SSS_Area3.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/SAL/202602190900_SSS_Area3.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/SAL/202602191000_SSS_Area3.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/SAL/202602191100_SSS_Area3.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/SAL/202602191200_SSS_Area3.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/SAL/202602191300_SSS_Area3.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/SAL/202602191400_SSS_Area3.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/SAL/202602191500_SSS_Area3.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/SAL/202602191600_SSS_Area3.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/SAL/202602191700_SSS_Area3.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/SAL/202602191800_SSS_Area3.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/SAL/202602191900_SSS_Area3.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/SAL/202602192000_SSS_Area3.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/SAL/202602192100_SSS_Area3.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/SAL/202602192200_SSS_Area3.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/SAL/202602192300_SSS_Area3.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/SAL/202602200000_SSS_Area3.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/SAL/202602200100_SSS_Area3.png",
         "datetime": "2026/02/20 01:00"
@@ -12508,105 +11740,49 @@
       {
         "path": "images/SAL/202603010000_SSS_Area3.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/SAL/202603010100_SSS_Area3.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/SAL/202603010200_SSS_Area3.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/SAL/202603010300_SSS_Area3.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/SAL/202603010400_SSS_Area3.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/SAL/202603010500_SSS_Area3.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/SAL/202603010600_SSS_Area3.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/SAL/202603010700_SSS_Area3.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/SAL/202603010800_SSS_Area3.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/SAL/202603010900_SSS_Area3.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/SAL/202603011000_SSS_Area3.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "BS": [
-      {
-        "path": "images/SAL/202602190100_BS_Area3.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/SAL/202602190200_BS_Area3.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/SAL/202602190300_BS_Area3.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/SAL/202602190400_BS_Area3.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/SAL/202602190500_BS_Area3.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/SAL/202602190600_BS_Area3.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/SAL/202602190700_BS_Area3.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/SAL/202602190800_BS_Area3.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/SAL/202602190900_BS_Area3.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/SAL/202602191000_BS_Area3.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/SAL/202602191100_BS_Area3.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/SAL/202602191200_BS_Area3.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/SAL/202602191300_BS_Area3.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/SAL/202602191400_BS_Area3.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/SAL/202602191500_BS_Area3.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/SAL/202602191600_BS_Area3.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/SAL/202602191700_BS_Area3.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/SAL/202602191800_BS_Area3.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/SAL/202602191900_BS_Area3.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/SAL/202602192000_BS_Area3.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/SAL/202602192100_BS_Area3.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/SAL/202602192200_BS_Area3.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/SAL/202602192300_BS_Area3.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/SAL/202602200000_BS_Area3.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/SAL/202602200100_BS_Area3.png",
         "datetime": "2026/02/20 01:00"
@@ -13470,105 +12646,49 @@
       {
         "path": "images/SAL/202603010000_BS_Area3.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/SAL/202603010100_BS_Area3.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/SAL/202603010200_BS_Area3.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/SAL/202603010300_BS_Area3.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/SAL/202603010400_BS_Area3.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/SAL/202603010500_BS_Area3.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/SAL/202603010600_BS_Area3.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/SAL/202603010700_BS_Area3.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/SAL/202603010800_BS_Area3.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/SAL/202603010900_BS_Area3.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/SAL/202603011000_BS_Area3.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "SST": [
-      {
-        "path": "images/TEM/202602190100_SST_Area3.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/TEM/202602190200_SST_Area3.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/TEM/202602190300_SST_Area3.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/TEM/202602190400_SST_Area3.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/TEM/202602190500_SST_Area3.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/TEM/202602190600_SST_Area3.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/TEM/202602190700_SST_Area3.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/TEM/202602190800_SST_Area3.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/TEM/202602190900_SST_Area3.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/TEM/202602191000_SST_Area3.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/TEM/202602191100_SST_Area3.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/TEM/202602191200_SST_Area3.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/TEM/202602191300_SST_Area3.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/TEM/202602191400_SST_Area3.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/TEM/202602191500_SST_Area3.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/TEM/202602191600_SST_Area3.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/TEM/202602191700_SST_Area3.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/TEM/202602191800_SST_Area3.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/TEM/202602191900_SST_Area3.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/TEM/202602192000_SST_Area3.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/TEM/202602192100_SST_Area3.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/TEM/202602192200_SST_Area3.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/TEM/202602192300_SST_Area3.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/TEM/202602200000_SST_Area3.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/TEM/202602200100_SST_Area3.png",
         "datetime": "2026/02/20 01:00"
@@ -14432,105 +13552,49 @@
       {
         "path": "images/TEM/202603010000_SST_Area3.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/TEM/202603010100_SST_Area3.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/TEM/202603010200_SST_Area3.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/TEM/202603010300_SST_Area3.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/TEM/202603010400_SST_Area3.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/TEM/202603010500_SST_Area3.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/TEM/202603010600_SST_Area3.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/TEM/202603010700_SST_Area3.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/TEM/202603010800_SST_Area3.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/TEM/202603010900_SST_Area3.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/TEM/202603011000_SST_Area3.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "BT": [
-      {
-        "path": "images/TEM/202602190100_BT_Area3.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/TEM/202602190200_BT_Area3.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/TEM/202602190300_BT_Area3.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/TEM/202602190400_BT_Area3.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/TEM/202602190500_BT_Area3.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/TEM/202602190600_BT_Area3.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/TEM/202602190700_BT_Area3.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/TEM/202602190800_BT_Area3.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/TEM/202602190900_BT_Area3.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/TEM/202602191000_BT_Area3.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/TEM/202602191100_BT_Area3.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/TEM/202602191200_BT_Area3.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/TEM/202602191300_BT_Area3.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/TEM/202602191400_BT_Area3.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/TEM/202602191500_BT_Area3.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/TEM/202602191600_BT_Area3.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/TEM/202602191700_BT_Area3.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/TEM/202602191800_BT_Area3.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/TEM/202602191900_BT_Area3.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/TEM/202602192000_BT_Area3.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/TEM/202602192100_BT_Area3.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/TEM/202602192200_BT_Area3.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/TEM/202602192300_BT_Area3.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/TEM/202602200000_BT_Area3.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/TEM/202602200100_BT_Area3.png",
         "datetime": "2026/02/20 01:00"
@@ -15394,105 +14458,49 @@
       {
         "path": "images/TEM/202603010000_BT_Area3.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/TEM/202603010100_BT_Area3.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/TEM/202603010200_BT_Area3.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/TEM/202603010300_BT_Area3.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/TEM/202603010400_BT_Area3.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/TEM/202603010500_BT_Area3.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/TEM/202603010600_BT_Area3.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/TEM/202603010700_BT_Area3.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/TEM/202603010800_BT_Area3.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/TEM/202603010900_BT_Area3.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/TEM/202603011000_BT_Area3.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "SVel": [
-      {
-        "path": "images/VEL/202602190100_SVel_Area3.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/VEL/202602190200_SVel_Area3.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/VEL/202602190300_SVel_Area3.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/VEL/202602190400_SVel_Area3.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/VEL/202602190500_SVel_Area3.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/VEL/202602190600_SVel_Area3.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/VEL/202602190700_SVel_Area3.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/VEL/202602190800_SVel_Area3.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/VEL/202602190900_SVel_Area3.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/VEL/202602191000_SVel_Area3.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/VEL/202602191100_SVel_Area3.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/VEL/202602191200_SVel_Area3.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/VEL/202602191300_SVel_Area3.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/VEL/202602191400_SVel_Area3.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/VEL/202602191500_SVel_Area3.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/VEL/202602191600_SVel_Area3.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/VEL/202602191700_SVel_Area3.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/VEL/202602191800_SVel_Area3.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/VEL/202602191900_SVel_Area3.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/VEL/202602192000_SVel_Area3.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/VEL/202602192100_SVel_Area3.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/VEL/202602192200_SVel_Area3.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/VEL/202602192300_SVel_Area3.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/VEL/202602200000_SVel_Area3.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/VEL/202602200100_SVel_Area3.png",
         "datetime": "2026/02/20 01:00"
@@ -16356,105 +15364,49 @@
       {
         "path": "images/VEL/202603010000_SVel_Area3.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/VEL/202603010100_SVel_Area3.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/VEL/202603010200_SVel_Area3.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/VEL/202603010300_SVel_Area3.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/VEL/202603010400_SVel_Area3.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/VEL/202603010500_SVel_Area3.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/VEL/202603010600_SVel_Area3.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/VEL/202603010700_SVel_Area3.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/VEL/202603010800_SVel_Area3.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/VEL/202603010900_SVel_Area3.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/VEL/202603011000_SVel_Area3.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "BVel": [
-      {
-        "path": "images/VEL/202602190100_BVel_Area3.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/VEL/202602190200_BVel_Area3.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/VEL/202602190300_BVel_Area3.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/VEL/202602190400_BVel_Area3.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/VEL/202602190500_BVel_Area3.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/VEL/202602190600_BVel_Area3.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/VEL/202602190700_BVel_Area3.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/VEL/202602190800_BVel_Area3.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/VEL/202602190900_BVel_Area3.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/VEL/202602191000_BVel_Area3.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/VEL/202602191100_BVel_Area3.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/VEL/202602191200_BVel_Area3.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/VEL/202602191300_BVel_Area3.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/VEL/202602191400_BVel_Area3.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/VEL/202602191500_BVel_Area3.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/VEL/202602191600_BVel_Area3.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/VEL/202602191700_BVel_Area3.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/VEL/202602191800_BVel_Area3.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/VEL/202602191900_BVel_Area3.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/VEL/202602192000_BVel_Area3.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/VEL/202602192100_BVel_Area3.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/VEL/202602192200_BVel_Area3.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/VEL/202602192300_BVel_Area3.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/VEL/202602200000_BVel_Area3.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/VEL/202602200100_BVel_Area3.png",
         "datetime": "2026/02/20 01:00"
@@ -17318,107 +16270,51 @@
       {
         "path": "images/VEL/202603010000_BVel_Area3.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/VEL/202603010100_BVel_Area3.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/VEL/202603010200_BVel_Area3.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/VEL/202603010300_BVel_Area3.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/VEL/202603010400_BVel_Area3.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/VEL/202603010500_BVel_Area3.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/VEL/202603010600_BVel_Area3.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/VEL/202603010700_BVel_Area3.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/VEL/202603010800_BVel_Area3.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/VEL/202603010900_BVel_Area3.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/VEL/202603011000_BVel_Area3.png",
+        "datetime": "2026/03/01 10:00"
       }
     ]
   },
   "WholeArea": {
     "SSS": [
-      {
-        "path": "images/SAL/202602190100_SSS_WholeArea.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/SAL/202602190200_SSS_WholeArea.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/SAL/202602190300_SSS_WholeArea.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/SAL/202602190400_SSS_WholeArea.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/SAL/202602190500_SSS_WholeArea.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/SAL/202602190600_SSS_WholeArea.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/SAL/202602190700_SSS_WholeArea.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/SAL/202602190800_SSS_WholeArea.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/SAL/202602190900_SSS_WholeArea.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/SAL/202602191000_SSS_WholeArea.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/SAL/202602191100_SSS_WholeArea.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/SAL/202602191200_SSS_WholeArea.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/SAL/202602191300_SSS_WholeArea.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/SAL/202602191400_SSS_WholeArea.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/SAL/202602191500_SSS_WholeArea.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/SAL/202602191600_SSS_WholeArea.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/SAL/202602191700_SSS_WholeArea.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/SAL/202602191800_SSS_WholeArea.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/SAL/202602191900_SSS_WholeArea.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/SAL/202602192000_SSS_WholeArea.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/SAL/202602192100_SSS_WholeArea.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/SAL/202602192200_SSS_WholeArea.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/SAL/202602192300_SSS_WholeArea.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/SAL/202602200000_SSS_WholeArea.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/SAL/202602200100_SSS_WholeArea.png",
         "datetime": "2026/02/20 01:00"
@@ -18282,105 +17178,49 @@
       {
         "path": "images/SAL/202603010000_SSS_WholeArea.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/SAL/202603010100_SSS_WholeArea.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/SAL/202603010200_SSS_WholeArea.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/SAL/202603010300_SSS_WholeArea.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/SAL/202603010400_SSS_WholeArea.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/SAL/202603010500_SSS_WholeArea.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/SAL/202603010600_SSS_WholeArea.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/SAL/202603010700_SSS_WholeArea.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/SAL/202603010800_SSS_WholeArea.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/SAL/202603010900_SSS_WholeArea.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/SAL/202603011000_SSS_WholeArea.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "BS": [
-      {
-        "path": "images/SAL/202602190100_BS_WholeArea.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/SAL/202602190200_BS_WholeArea.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/SAL/202602190300_BS_WholeArea.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/SAL/202602190400_BS_WholeArea.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/SAL/202602190500_BS_WholeArea.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/SAL/202602190600_BS_WholeArea.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/SAL/202602190700_BS_WholeArea.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/SAL/202602190800_BS_WholeArea.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/SAL/202602190900_BS_WholeArea.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/SAL/202602191000_BS_WholeArea.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/SAL/202602191100_BS_WholeArea.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/SAL/202602191200_BS_WholeArea.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/SAL/202602191300_BS_WholeArea.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/SAL/202602191400_BS_WholeArea.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/SAL/202602191500_BS_WholeArea.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/SAL/202602191600_BS_WholeArea.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/SAL/202602191700_BS_WholeArea.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/SAL/202602191800_BS_WholeArea.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/SAL/202602191900_BS_WholeArea.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/SAL/202602192000_BS_WholeArea.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/SAL/202602192100_BS_WholeArea.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/SAL/202602192200_BS_WholeArea.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/SAL/202602192300_BS_WholeArea.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/SAL/202602200000_BS_WholeArea.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/SAL/202602200100_BS_WholeArea.png",
         "datetime": "2026/02/20 01:00"
@@ -19244,105 +18084,49 @@
       {
         "path": "images/SAL/202603010000_BS_WholeArea.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/SAL/202603010100_BS_WholeArea.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/SAL/202603010200_BS_WholeArea.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/SAL/202603010300_BS_WholeArea.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/SAL/202603010400_BS_WholeArea.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/SAL/202603010500_BS_WholeArea.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/SAL/202603010600_BS_WholeArea.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/SAL/202603010700_BS_WholeArea.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/SAL/202603010800_BS_WholeArea.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/SAL/202603010900_BS_WholeArea.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/SAL/202603011000_BS_WholeArea.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "SST": [
-      {
-        "path": "images/TEM/202602190100_SST_WholeArea.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/TEM/202602190200_SST_WholeArea.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/TEM/202602190300_SST_WholeArea.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/TEM/202602190400_SST_WholeArea.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/TEM/202602190500_SST_WholeArea.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/TEM/202602190600_SST_WholeArea.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/TEM/202602190700_SST_WholeArea.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/TEM/202602190800_SST_WholeArea.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/TEM/202602190900_SST_WholeArea.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/TEM/202602191000_SST_WholeArea.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/TEM/202602191100_SST_WholeArea.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/TEM/202602191200_SST_WholeArea.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/TEM/202602191300_SST_WholeArea.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/TEM/202602191400_SST_WholeArea.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/TEM/202602191500_SST_WholeArea.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/TEM/202602191600_SST_WholeArea.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/TEM/202602191700_SST_WholeArea.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/TEM/202602191800_SST_WholeArea.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/TEM/202602191900_SST_WholeArea.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/TEM/202602192000_SST_WholeArea.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/TEM/202602192100_SST_WholeArea.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/TEM/202602192200_SST_WholeArea.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/TEM/202602192300_SST_WholeArea.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/TEM/202602200000_SST_WholeArea.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/TEM/202602200100_SST_WholeArea.png",
         "datetime": "2026/02/20 01:00"
@@ -20206,105 +18990,49 @@
       {
         "path": "images/TEM/202603010000_SST_WholeArea.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/TEM/202603010100_SST_WholeArea.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/TEM/202603010200_SST_WholeArea.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/TEM/202603010300_SST_WholeArea.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/TEM/202603010400_SST_WholeArea.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/TEM/202603010500_SST_WholeArea.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/TEM/202603010600_SST_WholeArea.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/TEM/202603010700_SST_WholeArea.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/TEM/202603010800_SST_WholeArea.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/TEM/202603010900_SST_WholeArea.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/TEM/202603011000_SST_WholeArea.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "BT": [
-      {
-        "path": "images/TEM/202602190100_BT_WholeArea.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/TEM/202602190200_BT_WholeArea.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/TEM/202602190300_BT_WholeArea.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/TEM/202602190400_BT_WholeArea.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/TEM/202602190500_BT_WholeArea.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/TEM/202602190600_BT_WholeArea.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/TEM/202602190700_BT_WholeArea.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/TEM/202602190800_BT_WholeArea.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/TEM/202602190900_BT_WholeArea.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/TEM/202602191000_BT_WholeArea.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/TEM/202602191100_BT_WholeArea.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/TEM/202602191200_BT_WholeArea.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/TEM/202602191300_BT_WholeArea.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/TEM/202602191400_BT_WholeArea.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/TEM/202602191500_BT_WholeArea.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/TEM/202602191600_BT_WholeArea.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/TEM/202602191700_BT_WholeArea.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/TEM/202602191800_BT_WholeArea.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/TEM/202602191900_BT_WholeArea.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/TEM/202602192000_BT_WholeArea.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/TEM/202602192100_BT_WholeArea.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/TEM/202602192200_BT_WholeArea.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/TEM/202602192300_BT_WholeArea.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/TEM/202602200000_BT_WholeArea.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/TEM/202602200100_BT_WholeArea.png",
         "datetime": "2026/02/20 01:00"
@@ -21168,105 +19896,49 @@
       {
         "path": "images/TEM/202603010000_BT_WholeArea.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/TEM/202603010100_BT_WholeArea.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/TEM/202603010200_BT_WholeArea.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/TEM/202603010300_BT_WholeArea.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/TEM/202603010400_BT_WholeArea.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/TEM/202603010500_BT_WholeArea.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/TEM/202603010600_BT_WholeArea.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/TEM/202603010700_BT_WholeArea.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/TEM/202603010800_BT_WholeArea.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/TEM/202603010900_BT_WholeArea.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/TEM/202603011000_BT_WholeArea.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "SVel": [
-      {
-        "path": "images/VEL/202602190100_SVel_WholeArea.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/VEL/202602190200_SVel_WholeArea.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/VEL/202602190300_SVel_WholeArea.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/VEL/202602190400_SVel_WholeArea.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/VEL/202602190500_SVel_WholeArea.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/VEL/202602190600_SVel_WholeArea.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/VEL/202602190700_SVel_WholeArea.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/VEL/202602190800_SVel_WholeArea.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/VEL/202602190900_SVel_WholeArea.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/VEL/202602191000_SVel_WholeArea.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/VEL/202602191100_SVel_WholeArea.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/VEL/202602191200_SVel_WholeArea.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/VEL/202602191300_SVel_WholeArea.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/VEL/202602191400_SVel_WholeArea.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/VEL/202602191500_SVel_WholeArea.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/VEL/202602191600_SVel_WholeArea.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/VEL/202602191700_SVel_WholeArea.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/VEL/202602191800_SVel_WholeArea.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/VEL/202602191900_SVel_WholeArea.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/VEL/202602192000_SVel_WholeArea.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/VEL/202602192100_SVel_WholeArea.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/VEL/202602192200_SVel_WholeArea.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/VEL/202602192300_SVel_WholeArea.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/VEL/202602200000_SVel_WholeArea.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/VEL/202602200100_SVel_WholeArea.png",
         "datetime": "2026/02/20 01:00"
@@ -22130,105 +20802,49 @@
       {
         "path": "images/VEL/202603010000_SVel_WholeArea.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/VEL/202603010100_SVel_WholeArea.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/VEL/202603010200_SVel_WholeArea.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/VEL/202603010300_SVel_WholeArea.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/VEL/202603010400_SVel_WholeArea.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/VEL/202603010500_SVel_WholeArea.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/VEL/202603010600_SVel_WholeArea.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/VEL/202603010700_SVel_WholeArea.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/VEL/202603010800_SVel_WholeArea.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/VEL/202603010900_SVel_WholeArea.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/VEL/202603011000_SVel_WholeArea.png",
+        "datetime": "2026/03/01 10:00"
       }
     ],
     "BVel": [
-      {
-        "path": "images/VEL/202602190100_BVel_WholeArea.png",
-        "datetime": "2026/02/19 01:00"
-      },
-      {
-        "path": "images/VEL/202602190200_BVel_WholeArea.png",
-        "datetime": "2026/02/19 02:00"
-      },
-      {
-        "path": "images/VEL/202602190300_BVel_WholeArea.png",
-        "datetime": "2026/02/19 03:00"
-      },
-      {
-        "path": "images/VEL/202602190400_BVel_WholeArea.png",
-        "datetime": "2026/02/19 04:00"
-      },
-      {
-        "path": "images/VEL/202602190500_BVel_WholeArea.png",
-        "datetime": "2026/02/19 05:00"
-      },
-      {
-        "path": "images/VEL/202602190600_BVel_WholeArea.png",
-        "datetime": "2026/02/19 06:00"
-      },
-      {
-        "path": "images/VEL/202602190700_BVel_WholeArea.png",
-        "datetime": "2026/02/19 07:00"
-      },
-      {
-        "path": "images/VEL/202602190800_BVel_WholeArea.png",
-        "datetime": "2026/02/19 08:00"
-      },
-      {
-        "path": "images/VEL/202602190900_BVel_WholeArea.png",
-        "datetime": "2026/02/19 09:00"
-      },
-      {
-        "path": "images/VEL/202602191000_BVel_WholeArea.png",
-        "datetime": "2026/02/19 10:00"
-      },
-      {
-        "path": "images/VEL/202602191100_BVel_WholeArea.png",
-        "datetime": "2026/02/19 11:00"
-      },
-      {
-        "path": "images/VEL/202602191200_BVel_WholeArea.png",
-        "datetime": "2026/02/19 12:00"
-      },
-      {
-        "path": "images/VEL/202602191300_BVel_WholeArea.png",
-        "datetime": "2026/02/19 13:00"
-      },
-      {
-        "path": "images/VEL/202602191400_BVel_WholeArea.png",
-        "datetime": "2026/02/19 14:00"
-      },
-      {
-        "path": "images/VEL/202602191500_BVel_WholeArea.png",
-        "datetime": "2026/02/19 15:00"
-      },
-      {
-        "path": "images/VEL/202602191600_BVel_WholeArea.png",
-        "datetime": "2026/02/19 16:00"
-      },
-      {
-        "path": "images/VEL/202602191700_BVel_WholeArea.png",
-        "datetime": "2026/02/19 17:00"
-      },
-      {
-        "path": "images/VEL/202602191800_BVel_WholeArea.png",
-        "datetime": "2026/02/19 18:00"
-      },
-      {
-        "path": "images/VEL/202602191900_BVel_WholeArea.png",
-        "datetime": "2026/02/19 19:00"
-      },
-      {
-        "path": "images/VEL/202602192000_BVel_WholeArea.png",
-        "datetime": "2026/02/19 20:00"
-      },
-      {
-        "path": "images/VEL/202602192100_BVel_WholeArea.png",
-        "datetime": "2026/02/19 21:00"
-      },
-      {
-        "path": "images/VEL/202602192200_BVel_WholeArea.png",
-        "datetime": "2026/02/19 22:00"
-      },
-      {
-        "path": "images/VEL/202602192300_BVel_WholeArea.png",
-        "datetime": "2026/02/19 23:00"
-      },
-      {
-        "path": "images/VEL/202602200000_BVel_WholeArea.png",
-        "datetime": "2026/02/20 00:00"
-      },
       {
         "path": "images/VEL/202602200100_BVel_WholeArea.png",
         "datetime": "2026/02/20 01:00"
@@ -23092,6 +21708,46 @@
       {
         "path": "images/VEL/202603010000_BVel_WholeArea.png",
         "datetime": "2026/03/01 00:00"
+      },
+      {
+        "path": "images/VEL/202603010100_BVel_WholeArea.png",
+        "datetime": "2026/03/01 01:00"
+      },
+      {
+        "path": "images/VEL/202603010200_BVel_WholeArea.png",
+        "datetime": "2026/03/01 02:00"
+      },
+      {
+        "path": "images/VEL/202603010300_BVel_WholeArea.png",
+        "datetime": "2026/03/01 03:00"
+      },
+      {
+        "path": "images/VEL/202603010400_BVel_WholeArea.png",
+        "datetime": "2026/03/01 04:00"
+      },
+      {
+        "path": "images/VEL/202603010500_BVel_WholeArea.png",
+        "datetime": "2026/03/01 05:00"
+      },
+      {
+        "path": "images/VEL/202603010600_BVel_WholeArea.png",
+        "datetime": "2026/03/01 06:00"
+      },
+      {
+        "path": "images/VEL/202603010700_BVel_WholeArea.png",
+        "datetime": "2026/03/01 07:00"
+      },
+      {
+        "path": "images/VEL/202603010800_BVel_WholeArea.png",
+        "datetime": "2026/03/01 08:00"
+      },
+      {
+        "path": "images/VEL/202603010900_BVel_WholeArea.png",
+        "datetime": "2026/03/01 09:00"
+      },
+      {
+        "path": "images/VEL/202603011000_BVel_WholeArea.png",
+        "datetime": "2026/03/01 10:00"
       }
     ]
   }
